@@ -82,6 +82,8 @@ const Migrate = () => {
   </h2>
 </div>
 
+
+  
         {/* Countries List & Content Side by Side */}
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
           
@@ -107,7 +109,7 @@ const Migrate = () => {
           </div>
   
           {/* Content Section */}
-          <div className="w-full -mt-20 md:w-2/3">
+          <div className="w-full md:w-2/3">
             <Content />
           </div>
   
@@ -115,6 +117,7 @@ const Migrate = () => {
       </div>
     </section>
   );
+  
 };
 
 export default Migrate;

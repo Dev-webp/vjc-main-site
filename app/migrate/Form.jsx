@@ -72,8 +72,8 @@ const Form = () => {
   };
 
   return (
-    <div className="bg-white p-6 py-4 rounded-lg shadow-2xl max-w-md mx-auto w-full h-[37rem] sm:h-[37rem] md:h-[37rem] lg:h-[36rem] tablet:h-[37rem] shadow-gray-500 mb-6 lg:mb-2 " style={{fontFamily: "Times New Roman, serif"}}>
-      <h2 className="text-2xl font-semibold text-center text-gray-800 mt-0 lg:mt-3">Sign up <span style={{color:'rgb(220, 4, 4)'}}> &</span> Migrate To Canada</h2>
+    <div className="bg-white p-6 py-4 rounded-lg shadow-2xl max-w-md mx-auto w-full h-[37rem] sm:h-[37rem] md:h-[37rem] lg:h-[36rem] tablet:h-[37rem] shadow-gray-500 mb-6 lg:mb-2" style={{fontFamily: "Times New Roman, serif"}}>
+      <h2 className="text-2xl font-semibold text-center text-gray-800 mt-0 lg:mt-3">Sign up <span style={{color:'rgb(220, 4, 4)'}}> &</span> Migrate To Germany</h2>
       
       <form onSubmit={handleSubmit} className="space-y-4 lg:space-y-3 mt-2 lg:mt-2">
         <div>

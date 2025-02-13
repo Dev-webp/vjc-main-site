@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Nav from "./Nav";
 import Form from "./Form";
-import Two from "./Two";
+import Two from "./two";
 import Footer from "./Footer";
 
 const textContainerVariants = {
