@@ -11,17 +11,16 @@ const Content = () => {
         fontFamily:'Times New Roman',
         position: 'relative',
   overflow: 'hidden',
+
       }}>
       <div style={{marginBottom: '40px' }}>
-  <h3 className="text-3xl font-semibold text-black text-center">
-    Germany Opportunity Card - <span style={{ color: 'rgb(220, 4, 4)' }}>VJC Overseas</span>
+  <h3 className="text-2xl font-semibold text-black text-center">
+  Germany Opportunity Card – Your Gateway to a Bright Future - <span className="text-orange-500">VJC Overseas</span>
   </h3>
 </div>
 
         
-      <h3 style={{ color: "black", fontWeight: "bold", marginBottom: '20px' }}>
-        VJC Overseas: Germany Opportunity Card – Your Gateway to a Bright Future
-      </h3>
+     
       <p style={{ marginBottom: '20px' }}>
         At VJC Overseas, we take immense pride in offering one of the most promising pathways to secure a future in Germany: the Germany Opportunity Card. This new, innovative initiative has opened up exciting prospects for skilled professionals, allowing them to live and work in one of Europe’s most thriving economies.
       </p>

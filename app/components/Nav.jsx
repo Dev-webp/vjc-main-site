@@ -9,7 +9,7 @@ const Navbar = () => {
 
   const menuItems = [
     { name: "Home", path: "/" },
-    { name: "About Us", path: "/" },
+    { name: "Assessment", path: "/assessment" },
     { name: "Migrate To", path: "/" },
     { name: "Study Abroad", path: "/" },
     { name: "PR Visas", path: "/" },
@@ -25,7 +25,7 @@ const Navbar = () => {
   const migrateSubPages = [
     { name: "Germany", path: "/migrate/germany" },
     { name: "Canada", path: "/migrate/canada" },
-    { name: "United States", path: "/migrate/usa" },
+    { name: "United States", path: "/migrate/united-states" },
     { name: "Australia", path: "/migrate/australia" },
     { name: "United Kingdom", path: "/migrate/uk" },
     { name: "New Zealand", path: "/migrate/new-zealand" },
