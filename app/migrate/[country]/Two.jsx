@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useRouter, useParams } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 import Goppcardvisa from "./Germany-visa/Goppcardvisa";
-import Gworkvisa from "./Germany-visa/Gworkvisa";
+
 import Form from "../Form";
 
 const countryVisaData = {
@@ -68,7 +68,7 @@ const countryVisaData = {
 
 const visaComponents = {
   "opportunity-card": Goppcardvisa,
-  "work-visa": Gworkvisa,
+  
 };
 
 const backgroundImages = {
@@ -92,8 +92,12 @@ const MigrateCountry = () => {
 
   return (
     <div className={`relative bg-cover bg-center min-h-screen ${isImageLoaded ? "bg-loaded" : "bg-loading"}`}
-         style={{ backgroundImage: `url(${backgroundImages[country]})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-      <div className="relative flex flex-col lg:flex-row items-center justify-between p-10 gap-10 min-h-screen">
+    >
+      <div className="relative flex flex-col lg:flex-row items-center justify-between p-10 gap-10 min-h-screen" style={{
+      backgroundImage: `url(${backgroundImages[country]})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+    }}>
         <div className="w-full lg:w-1/2 lg:ml-16 mt-[-2rem] text-center lg:text-left">
           <h1 className="font-semibold uppercase leading-tight text-teal-950 text-3xl sm:text-4xl md:text-5xl lg:text-[3.50rem] mt-12 sm:mt-12" style={{ fontFamily: "Times New Roman, serif" }}>
             Migrate to {country.charAt(0).toUpperCase() + country.slice(1)}
@@ -127,7 +131,7 @@ const MigrateCountry = () => {
           </div>
         </div>
 
-        <div className="w-full lg:flex-1 overflow-y-auto max-h-[800px] px-8 rounded-xl shadow-md border border-gray-200 mt-8 lg:mt-0">
+        <div className="w-full lg:flex-1 ml-10 overflow-y-auto max-h-[800px] px-8 rounded-xl shadow-md border border-gray-200 mt-8 lg:mt-0">
           {VisaComponent ? <VisaComponent /> : <Goppcardvisa />}
         </div>
       </div>
