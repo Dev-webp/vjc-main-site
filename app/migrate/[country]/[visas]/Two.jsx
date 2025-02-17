@@ -9,9 +9,9 @@ import Gtouristvisa from './Germany-visa/Gtouristvisa';
 import Gdependentvisa from './Germany-visa/Gdependentvisa';
 import Gselfempvisa from './Germany-visa/Gselfempvisa';
 
-import Canadapr from './Canadapages/Canadapr';
 import Canadastudent from "./Canadapages/Canadastudent";
 import Canadatourist from "./Canadapages/Canadatourist";
+import Canadapr from "./Canadapages/Canadapr";
 import Canadafs from "./Canadapages/Canadafs";
 import Form from '../../Form';
 
