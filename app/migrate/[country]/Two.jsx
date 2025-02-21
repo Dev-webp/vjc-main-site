@@ -40,30 +40,48 @@ const countryVisaData = {
    
   ],
   "united-kingdom": [
-    { name: "UK Work Visa", path: "/migrate/united-kingdom/work-visa" },
     { name: "UK Student Visa", path: "/migrate/united-kingdom/student-visa" },
+    { name: "UK Tourist Visa", path: "/migrate/united-kingdom/tourist-visa" },
+    { name: "UK business Visa", path: "/migrate/united-kingdom/business-visa" },
+    { name: "UK Innovator Visa", path: "/migrate/united-kingdom/innovator-visa" },
+    { name: "UK Sponsorship Visa", path: "/migrate/united-kingdom/sponsorship-visa" }
   ],
   "new-zealand": [
+    { name: "New Zealand Permanent Resident Visa", path: "/migrate/new-zealand/permanent-resident-visa" },
     { name: "New Zealand Work Visa", path: "/migrate/new-zealand/work-visa" },
-    { name: "New Zealand Resident Visa", path: "/migrate/new-zealand/resident-visa" },
+    { name: "New Zealand Student Visa", path: "/migrate/new-zealand/skilled-work-visa" },
+    { name: "New Zealand Skilled Work Visa", path: "/migrate/new-zealand/skilled-work-visa" },
+    { name: "New Zealand Business Visa", path: "/migrate/new-zealand/business-visa" },
+    { name: "New Zealand Tourist Visa", path: "/migrate/new-zealand/tourist-visa" },
+    { name: "New Zealand Dependent Visa", path: "/migrate/new-zealand/dependent-visa" },
   ],
   "south-africa": [
-    { name: "South Africa Work Visa", path: "/migrate/south-africa/work-visa" },
+    { name: "South Africa Critical Skills Visa", path: "/migrate/south-africa/critical-skills-visa" },
+    { name: "South Africa General Work Visa", path: "/migrate/south-africa/general-work-visa" },
     { name: "South Africa Business Visa", path: "/migrate/south-africa/business-visa" },
+    { name: "South Africa Tourist Visa", path: "/migrate/south-africa/tourist-visa" },
   ],
   "hong-kong": [
+    { name: "Hong Kong Student Visa", path: "/migrate/hong-kong/student-visa" },
+    { name: "Hong Kong Employment Visa", path: "/migrate/hong-kong/employment-visa" },
+    { name: "Hong Kong Business Visa", path: "/migrate/hong-kong/business-visa" },
+    { name: "Hong Kong Tourist Visa", path: "/migrate/hong-kong/tourist-visa" },
+    { name: "Hong Kong Dependent Visa", path: "/migrate/hong-kong/dependent-visa" },
     { name: "Hong Kong Work Visa", path: "/migrate/hong-kong/work-visa" },
-    { name: "Hong Kong Investment Visa", path: "/migrate/hong-kong/investment-visa" },
   ],
   denmark: [
-    { name: "Denmark Work Visa", path: "/migrate/denmark/work-visa" },
-    { name: "Denmark Green Card", path: "/migrate/denmark/green-card" },
+    { name: "Denmark Student Visa", path: "/migrate/denmark/work-visa" },
+    { name: "Denmark Work Permit Visa", path: "/migrate/denmark/work-permit-visa" },
+    { name: "Denmark Tourist Visa", path: "/migrate/denmark/tourist-visa" },
+    { name: "Denmark Business Visa", path: "/migrate/denmark/business-visa" },
   ],
   uae: [
-    { name: "UAE Work Visa", path: "/migrate/uae/work-visa" },
-    { name: "UAE Investor Visa", path: "/migrate/uae/investor-visa" },
-  ],
-  
+    { name: "UAE Student Visa", path: "/migrate/uae/work-visa" },
+    { name: "UAE Golden Visa", path: "/migrate/uae/golden-visa" },
+  { name: "UAE Work Visa", path: "/migrate/uae/work-visa" },
+  { name: "UAE Green Visa", path: "/migrate/uae/green-visa" },
+  { name: "UAE Tourist Visa", path: "/migrate/uae/tourist-visa" },
+],
 };
 
 const visaComponents = {

@@ -29,6 +29,40 @@ import Aussponser from "./Australia-visa/Aus-sponsor";
 import Auswork from "./Australia-visa/Aus-work"
 // import Austourist from "./Australia-visa/Aus-tourist";
 
+import UKBvisa from "./UK-visa/UKBvisa";
+import UKTvisa from "./UK-visa/UKTvisa";
+import UKinnovatorvisa from "./UK-visa/UKinnovatorvisa";
+import UKsponvisa from "./UK-visa/UKsponvisa";
+import UKstudvisa from "./UK-visa/UKstudvisa";
+
+import HKtourist from "./HongKongpages/HKtourist";
+import HKemployee from "./HongKongpages/HKemployee";
+import HKstudentvisa from "./HongKongpages/HKstudentvisa";
+import HKbusiness from "./HongKongpages/HKbusiness";
+import HKdependent from "./HongKongpages/HKdependent";
+import HKwork from "./HongKongpages/HKwork";
+
+import Denbusiness from "./Denmark-visa/Den-business"
+import Denstud from "./Denmark-visa/Den-stud"
+import Denwork from "./Denmark-visa/Den-work"
+import Dentourist from "./Denmark-visa/Den-tourist"
+
+import Newzepr from "./Newzealand-visa/Newze-pr"
+import Newzedepen from "./Newzealand-visa/Newze-Depen"
+import Newzeskillwork from "./Newzealand-visa/Newze-skillwork"
+import Newzestud from "./Newzealand-visa/Newze-stud"
+import Newzetourist from "./Newzealand-visa/Newze-tourist"
+import Newzebusiness from "./Newzealand-visa/Newze-business"
+import Newzework from "./Newzealand-visa/Newze-work"
+
+import UAEstud from "./UAE-visa/UAE-stud";
+import UAEgolden from "./UAE-visa/UAE-golden";
+import UAEwork from "./UAE-visa/UAE-work";
+import UAEgreen from "./UAE-visa/UAE-green";
+import UAEtourist from "./UAE-visa/UAE-tourist";
+
+
+
 const countryVisaData = {
   germany: [
     { name: "Germany Opportunity Card", path: "/migrate/germany/opportunity-card" },
@@ -62,6 +96,49 @@ const countryVisaData = {
     { name: "Australia Sponsorship Visa", path: "/migrate/australia/sponsorship-visa" },
    
   ],
+  "united-kingdom": [
+    { name: "UK Student Visa", path: "/migrate/united-kingdom/student-visa" },
+    { name: "UK Tourist Visa", path: "/migrate/united-kingdom/tourist-visa" },
+    { name: "UK business Visa", path: "/migrate/united-kingdom/business-visa" },
+    { name: "UK Innovator Visa", path: "/migrate/united-kingdom/innovator-visa" },
+    { name: "UK Sponsorship Visa", path: "/migrate/united-kingdom/sponsorship-visa" }
+  ],
+  "new-zealand": [
+    { name: "New Zealand Permanent Resident Visa", path: "/migrate/new-zealand/permanent-resident-visa" },
+    { name: "New Zealand Work Visa", path: "/migrate/new-zealand/work-visa" },
+    { name: "New Zealand Student Visa", path: "/migrate/new-zealand/student-work-visa" },
+    { name: "New Zealand Skilled Work Visa", path: "/migrate/new-zealand/skilled-work-visa" },
+    { name: "New Zealand Business Visa", path: "/migrate/new-zealand/business-visa" },
+    { name: "New Zealand Tourist Visa", path: "/migrate/new-zealand/tourist-visa" },
+    { name: "New Zealand Dependent Visa", path: "/migrate/new-zealand/dependent-visa" },
+  ],
+  "south-africa": [
+    { name: "South Africa Critical Skills Visa", path: "/migrate/south-africa/critical-skills-visa" },
+    { name: "South Africa General Work Visa", path: "/migrate/south-africa/general-work-visa" },
+    { name: "South Africa Business Visa", path: "/migrate/south-africa/business-visa" },
+    { name: "South Africa Tourist Visa", path: "/migrate/south-africa/tourist-visa" },
+  ],
+  "hong-kong": [
+    { name: "Hong Kong Student Visa", path: "/migrate/hong-kong/student-visa" },
+    { name: "Hong Kong Employment Visa", path: "/migrate/hong-kong/employment-visa" },
+    { name: "Hong Kong Business Visa", path: "/migrate/hong-kong/business-visa" },
+    { name: "Hong Kong Tourist Visa", path: "/migrate/hong-kong/tourist-visa" },
+    { name: "Hong Kong Dependent Visa", path: "/migrate/hong-kong/dependent-visa" },
+    { name: "Hong Kong Work Visa", path: "/migrate/hong-kong/work-visa" },
+  ],
+  denmark: [
+    { name: "Denmark Student Visa", path: "/migrate/denmark/student-visa" },
+    { name: "Denmark Work Permit Visa", path: "/migrate/denmark/work-permit-visa" },
+    { name: "Denmark Tourist Visa", path: "/migrate/denmark/tourist-visa" },
+    { name: "Denmark Business Visa", path: "/migrate/denmark/business-visa" },
+  ],
+  uae: [
+    { name: "UAE Student Visa", path: "/migrate/uae/student-visa" },
+    { name: "UAE Golden Visa", path: "/migrate/uae/golden-visa" },
+  { name: "UAE Work Visa", path: "/migrate/uae/work-visa" },
+  { name: "UAE Green Visa", path: "/migrate/uae/green-visa" },
+  { name: "UAE Tourist Visa", path: "/migrate/uae/tourist-visa" },
+],
 };
 
 const visaComponents = {
@@ -91,6 +168,38 @@ const visaComponents = {
  'australia-family-visa':Ausfamily,
  'australia-dependent-visa':Ausdependent,
  'australia-sponsorship-visa':Aussponser,
+
+ 'united-kingdom-student-visa':UKstudvisa,
+ 'united-kingdom-tourist-visa':UKTvisa,
+ 'united-kingdom-business-visa':UKBvisa,
+ 'united-kingdom-innovator-visa':UKinnovatorvisa,
+ 'united-kingdom-sponsorship-visa':UKsponvisa,
+
+ 'new-zealand-permanent-resident-visa':Newzepr,
+ 'new-zealand-work-visa':Newzework,
+ 'new-zealand-student-work-visa':Newzestud,
+ 'new-zealand-skilled-work-visa':Newzeskillwork,
+ 'new-zealand-business-visa':Newzebusiness,
+ 'new-zealand-tourist-visa':Newzetourist,
+ 'new-zealand-dependent-visa':Newzedepen,
+
+ 'hong-kong-student-visa':HKstudentvisa,
+ 'hong-kong-employment-visa':HKemployee,
+ 'hong-kong-business-visa':HKbusiness,
+ 'hong-kong-tourist-visa':HKtourist,
+ 'hong-kong-dependent-visa':HKdependent,
+ 'hong-kong-work-visa':HKwork,
+
+ 'denmark-student-visa':Denstud,
+ 'denmark-work-permit-visa':Denwork,
+ 'denmark-tourist-visa':Dentourist,
+ 'denmark-business-visa':Denbusiness,
+
+ 'uae-student-visa':UAEstud,
+ 'uae-golden-visa':UAEgolden,
+ 'uae-work-visa':UAEwork,
+ 'uae-green-visa':UAEgreen,
+ 'uae-tourist-visa':UAEtourist,
 
 };
 
@@ -126,7 +235,10 @@ export default function MigrateCountry() {
     setSelectedButton(path); // Set the selected button for background change
     router.push(path); // Navigate to the selected visa page
   };
-
+  const paths = visasList.map(v => v.path);
+  const duplicates = paths.filter((path, index) => paths.indexOf(path) !== index);
+  console.log("Duplicate paths:", duplicates);
+  
   return (
     <div>
       {/* Background Image with Full Width and 500px Height */}
