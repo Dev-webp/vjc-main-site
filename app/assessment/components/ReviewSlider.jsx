@@ -81,7 +81,7 @@ const ReviewsSlider = () => {
               <div className="text-yellow-400 mb-2">
                 {'★'.repeat(review.rating)}{'★'.repeat(5 - review.rating)}
               </div>
-              <h3 className="font-semibold text-xl text-gray-700 mb-2 font-bold">{review.name}</h3>
+              <h3 className="text-xl text-gray-700 mb-2 font-bold">{review.name}</h3>
             </div>
           ))}
         </Slider>

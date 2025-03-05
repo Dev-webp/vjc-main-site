@@ -99,7 +99,8 @@ const Form = () => {
       setCurrentStep(0);
     }
   };
-
+  
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -114,9 +115,11 @@ const Form = () => {
 
       if (response.ok) {
         setPopupVisible(true);
-      } else {
-        setFormStatus('error');
+    
+        // Hide popup after 3-4 seconds
+        setTimeout(() => setPopupVisible(false), 5000);
       }
+    
     } catch (error) {
       console.error('Error:', error.message);
       setFormStatus('error');
@@ -237,16 +240,23 @@ const Form = () => {
       </div>
 
       <div className="w-full sm:w-1/3">
-        <label className="block text-gray-700 font-medium">Phone</label>
-        <input 
-          type="tel" 
-          placeholder="Enter your phone number" 
-          value={phone} 
-          onChange={(e) => setPhone(e.target.value)} 
-          required 
-          className="w-full px-4 py-3 border rounded-lg shadow-sm focus:ring focus:ring-orange-200"
-        />
-      </div>
+  <label className="block text-gray-700 font-medium">Phone</label>
+  <input
+    type="tel"
+    placeholder="Enter your phone number"
+    value={phone}
+    onChange={(e) => {
+      const value = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
+      if (value.length <= 10) {
+        setPhone(value);
+      }
+    }}
+    maxLength="10"
+    required
+    className="w-full px-4 py-3 border rounded-lg shadow-sm focus:ring focus:ring-orange-200"
+  />
+</div>
+
     </div>
 
     {/* Age and Message on the next line */}
@@ -288,6 +298,8 @@ const Form = () => {
   <button type="submit" className="px-6 py-3 h-12 w-28 bg-orange-500 text-white flex items-center transition duration-300 ease-in-out hover:bg-orange-600" disabled={loading}>
     {loading ? 'Submitting...' : 'Submit'}
   </button>
+  
+
 </div>
 
 
@@ -310,6 +322,7 @@ const Form = () => {
         )}
 
     </div>
+  
 
   );
 };
