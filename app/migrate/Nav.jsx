@@ -1,7 +1,8 @@
 
-"use client"
+"use client";
 import React, { useState } from "react";
 import Link from "next/link"; 
+import Image from "next/image"; 
 import { FaEnvelope, FaBars, FaTimes, FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 
 const Navbar = () => {
@@ -9,10 +10,10 @@ const Navbar = () => {
 
   const menuItems = [
     { name: "Home", path: "/" },
-    { name: "Assessment", path: "/" },
-    { name: "Migrate To", path: "/" },
-    { name: "Study Abroad", path: "/" },
-    { name: "PR Visas", path: "/" },
+    { name: "About us", path: "/about-us" },
+    { name: "Migrate To", path: "/migrate" },
+    { name: "Study Abroad", path: "/studyabroad" },
+    { name: "PR Visas", path: "/Permanent-Residency-Visas" },
     { name: "Work Abroad", path: "/" },
     { name: "Job Seeker Visas", path: "/" },
     { name: "Visit Visas", path: "/" },
@@ -23,25 +24,26 @@ const Navbar = () => {
   ];
 
   const migrateSubPages = [
-    { name: "Germany", path:"/m" },
-    { name: "Canada", path: "/migrate#canada" },
-    { name: "United States", path: "/migrate#usa" },
-    { name: "Australia", path: "/migrate#australia" },
-    { name: "United Kingdom", path: "/migrate#uk" },
-    { name: "New Zealand", path: "/migrate#new-zealand" },
-    { name: "South Africa", path: "/migrate#south-africa" },
-    { name: "Hong Kong", path: "/migrate#hong-kong" },
-    { name: "Denmark", path: "/migrate#denmark" },
-    { name: "UAE", path: "/migrate#uae" },
+    { name: "Germany", path: "/migrate/germany" },
+    { name: "Canada", path: "/migrate/canada" },
+    { name: "United States", path: "/migrate/united-states" },
+    { name: "Australia", path: "/migrate/australia" },
+    { name: "United Kingdom", path: "/migrate/united-kingdom" },
+    { name: "New Zealand", path: "/migrate/new-zealand" },
+    { name: "South Africa", path: "/migrate/south-africa" },
+    { name: "Hong Kong", path: "/migrate/hong-kong" },
+    { name: "Denmark", path: "/migrate/denmark" },
+    { name: "UAE", path: "/migrate/uae" },
   ];
+
   const prVisaSubPages = [
-    { name: "Portugal Jobseeker", path: "/pr#residency" },
-    { name: "Schngen Visa", path: "/pr#schengen" },
-    { name: "Resume Marketing Service", path: "/pr#marketing" },
-    { name: "Study Abroad with VJC", path: "/pr#marketing" },
-    { name: "Sweden Jobseeker", path: "/pr#marketing" },
-    { name: "Visit Visa Services", path: "/pr#marketing" },
-    { name: "Work Abroad with VJC", path: "/pr#marketing" },
+    { name: "Canada Permanent Residency Visa", path: "/pr#residency" },
+    { name: "Australia Permanent Residency Visa", path: "/pr#schengen" },
+    { name: "UK Permanent Residency Visa", path: "/pr#marketing" },
+    { name: "New Zealand Permanent Residency Visa", path: "/pr#marketing" },
+    { name: "Germany Blue Card Visa", path: "/pr#marketing" },
+    { name: "USA Green Card", path: "/pr#marketing" },
+    
   
   
   ];
@@ -53,38 +55,48 @@ const Navbar = () => {
     <header>
       {/* White background section with logo, contact information, and marquee */}
       <div className="bg-white py-0 px-2 shadow-md z-50 fixed top-0 w-screen">
-      <div className="flex justify-between items-center max-w-7xl mx-auto">
-          {/* Logo Section */}
-          <div className="flex items-center space-x-0">
-            <Link href="/" className="text-lg font-bold">
-              <img src="/logo-1.webp" alt="Logo" className="h-14" />
-            </Link>
-            <Link href="/" className="text-lg font-bold">
-              <img src="/logo-2.webp" alt="Logo" className="h-14" />
-            </Link>
-          </div>
+        <div className="flex justify-between items-center max-w-7xl mx-auto">
+          {/* Logo (Always visible) */}
+          <div className="flex items-center -ml-5 ">
+  <Link href="/" className="text-lg font-bold">
+    <div className="relative h-14 w-24"> 
+      <Image src="/logo-1.webp" alt="Logo" fill className="object-contain" />
+    </div>
+  </Link>
+  <Link href="/" className="text-lg font-bold">
+    <div className="relative h-14 w-28 -ml-6"> 
+      <Image src="/logo-2.webp" alt="Logo" fill className="object-contain" />
+    </div>
+  </Link>
+</div>
 
+
+          {/* Hidden for md and sm */}
+          <div className="hidden md:flex items-center ml-4">
+          <div className="relative h-8 w-8">
+              <Image src="/message.gif" alt="News" fill className="object-contain" />
+            </div>
+          </div>
+          
 
           {/* Marquee Section */}
-
-
-         
+          <div className="marquee-container flex-1 mx-4 hidden md:block">
+            <p className="whitespace-nowrap animate-marquee uppercase text-sm text-gray-800">
+              Your Study and Work Abroad Opportunities Await! Explore the world with us. Learn more about visa programs and opportunities today!
+            </p>
+          </div>
 
           {/* Contact Information (Hidden on md and sm devices) */}
-          <div className=" flex items-center space-x-2">
+          <div className="flex items-center space-x-2">
             <div className="hidden md:flex items-center space-x-2 text-sm text-black uppercase font-semibold italic">
-              <div className="flex items-center animate-pulse text-custom-blue">
-                <img src="/loc.png" alt="Bangalore" className="mr-1 w-5 h-5" />
-                <p>Bangalore</p>
-              </div>
-              <div className="flex items-center animate-pulse text-custom-blue">
-                <img src="/loc.png" alt="Hyderabad" className="mr-1 w-5 h-5" />
-                <p>Hyderabad</p>
-              </div>
-              <div className="flex items-center animate-pulse text-custom-blue">
-                <img src="/loc.png" alt="USA" className="mr-1 w-5 h-5" />
-                <p>USA</p>
-              </div>
+              {["Bangalore", "Hyderabad", "USA"].map((location) => (
+                <div key={location} className="flex items-center animate-pulse text-custom-blue">
+                  <div className="relative w-5 h-5 mr-1">
+                    <Image src="/loc.png" alt={location} fill className="object-contain" />
+                  </div>
+                  <p>{location}</p>
+                </div>
+              ))}
             </div>
 
             {/* Mail Address with Icon */}
@@ -99,16 +111,13 @@ const Navbar = () => {
 
             {/* Phone Number with Icon */}
             <div>
-  <a
-    href="tel:+919160449000"
-    className="flex items-center text-white py-1 px-3 rounded-lg text-xs lg:text-sm whitespace-nowrap font-bold uppercase mr-3"
-  >
-    <img src="/phone.gif" alt="Phone" className="h-6 w-6 mr-2" />
-    {/* Test with a default Tailwind color like text-blue-500 */}
-    <span className="text-blue-500">+91 9160449000</span>
-  </a>
-</div>
-
+            <a href="tel:+919160449000" className="flex items-center text-white py-1 px-0 rounded-lg text-xs lg:text-sm whitespace-nowrap font-bold uppercase mr-3">
+                <div className="relative w-6 h-6 mr-1">
+                  <Image src="/phone.gif" alt="Phone" fill className="object-contain" />
+                </div>
+                <span className="text-custom-blue">+91 9160449000</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -117,52 +126,42 @@ const Navbar = () => {
 <div className="bg-orange-500 fixed top-12 w-screen z-50 hidden md:block">
   <nav className="flex justify-between items-center px-2 max-w-7xl py-1.5">
     <div className="flex flex-row -space-x-2 whitespace-nowrap">
-      {menuItems.map((item, index) => (
-        <React.Fragment key={item.name}>
-          {/* Check for "Migrate To" and "PR Visas" */}
-          {item.name === "Migrate To" || item.name === "PR Visas" ? (
-            <div className="relative group">
-              <span className="text-white text-sm lg:text-xs font-semibold px-3.5 hover:bg-white hover:bg-opacity-20 uppercase mt-1">
-                {item.name}
-              </span>
-              {/* Submenu */}
-              <div className="absolute left-0 hidden group-hover:block bg-gray-50 p-2 space-y-2 rounded-lg shadow-lg z-50">
-                {/* Conditionally Render Submenus */}
-                {(item.name === "Migrate To" ? migrateSubPages : prVisaSubPages).map((subItem) => (
-                  <Link
-                    href={subItem.path}
-                    key={subItem.name}
-                    className="text-orange-500 text-sm font-semibold px-4 py-2 rounded-lg hover:bg-orange-200 hover:bg-opacity-30 transition-all ease-in-out block"
-                  >
-                    {/* Ensure subItem.name and subItem.path are strings */}
-                    {typeof subItem.name === 'string' && typeof subItem.path === 'string' ? (
-                      subItem.name
-                    ) : (
-                      <span>Error: Invalid data</span>
-                    )}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          ) : (
+    {menuItems.map((item, index) => (
+  <React.Fragment key={item.name}>
+    {item.name === "Migrate To" || item.name === "PR Visas" ? (
+      <div className="relative group">
+        <Link href={item.path} className="text-white text-sm lg:text-xs font-semibold px-3.5 hover:bg-white hover:bg-opacity-20 uppercase mt-1">
+          {item.name}
+        </Link>
+        {/* Dropdown for Migrate To and PR Visas */}
+        <div className="absolute left-0 hidden group-hover:block bg-gray-50 p-2 space-y-2 rounded-lg shadow-lg">
+          {(item.name === "Migrate To" ? migrateSubPages : prVisaSubPages).map((subItem) => (
             <Link
-              href={item.path}
-              className="text-white text-sm lg:text-xs font-semibold px-3.5 hover:bg-white hover:bg-opacity-20 uppercase mt-1"
+              href={subItem.path}
+              key={subItem.name}
+              className="text-orange-500 text-sm font-semibold px-4 py-2 rounded-lg hover:bg-orange-200 hover:bg-opacity-30 transition-all ease-in-out block"
             >
-              {/* Ensure item.name and item.path are strings */}
-              {typeof item.name === 'string' && typeof item.path === 'string' ? (
-                item.name
-              ) : (
-                <span>Error: Invalid data</span>
-              )}
+              {subItem.name}
             </Link>
-          )}
-          {index < menuItems.length - 1 && <span className="text-white hidden lg:inline-block">|</span>}
-        </React.Fragment>
-      ))}
+          ))}
+        </div>
+      </div>
+    ) : (
+      <Link
+        href={item.path}
+        className="text-white text-sm lg:text-xs font-semibold px-3.5 hover:bg-white hover:bg-opacity-20 uppercase mt-1"
+      >
+        {item.name}
+      </Link>
+    )}
+    {index < menuItems.length - 1 && <span className="text-white hidden lg:inline-block">|</span>}
+  </React.Fragment>
+))}
+
     </div>
   </nav>
 </div>
+
 
 {/* Small devices */}
 <div className="bg-orange-500 fixed top-12 w-screen z-50 md:hidden">
@@ -224,7 +223,67 @@ const Navbar = () => {
 
       {/* Add margin to ensure content below is not hidden */}
       <div className="mt-0"></div> {/* Adjust the margin if necessary */}
+       
+{/* Floating Vertical Assessment Button with Shaking "FREE" and Arrow */}
+<Link href="/assessment">
+  <div className="fixed right-4 top-1/2 transform -translate-y-1/2 z-50 flex flex-col items-center space-y-2">
+    
+    {/* "FREE" Text with Shaking Effect */}
+    <div className="text-white font-bold text-sm bg-green-500 px-3 py-1 rounded-lg shadow-lg animate-shake">
+      FREE
+    </div>
+
+    {/* Bouncing Downward Arrow */}
+    <div className="animate-bounce">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={2}
+        stroke="white"
+        className="w-6 h-6"
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+      </svg>
+    </div>
+
+    {/* Vertical Assessment Text */}
+    <div className="flex flex-col items-center text-white font-bold text-sm bg-orange-500 px-3 py-2 rounded-lg shadow-lg transition-transform hover:scale-110 hover:bg-orange-600">
+      <span>A</span>
+      <span>S</span>
+      <span>S</span>
+      <span>E</span>
+      <span>S</span>
+      <span>S</span>
+      <span>M</span>
+      <span>E</span>
+      <span>N</span>
+      <span>T</span>
+    </div>
+
+  </div>
+</Link>
+
+<style>
+  {`
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-3px); }
+      50% { transform: translateX(3px); }
+      75% { transform: translateX(-3px); }
+      100% { transform: translateX(0); }
+    }
+    .animate-shake {
+      animation: shake 0.5s infinite;
+    }
+  `}
+</style>
+
+
+
+
     </header>
+
   );
 };
 
