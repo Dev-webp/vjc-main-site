@@ -2,6 +2,7 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link"; 
+import Image from "next/image"; 
 import { FaEnvelope, FaBars, FaTimes, FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 
 const Navbar = () => {
@@ -56,19 +57,27 @@ const Navbar = () => {
       <div className="bg-white py-0 px-2 shadow-md z-50 fixed top-0 w-screen">
         <div className="flex justify-between items-center max-w-7xl mx-auto">
           {/* Logo (Always visible) */}
-          <div className="flex items-center space-x-0">
-            <Link href="/" className="text-lg font-bold">
-              <img src="/logo-1.webp" alt="Logo" className="h-14" /> {/* First logo */}
-            </Link>
-            <Link href="/" className="text-lg font-bold">
-              <img src="/logo-2.webp" alt="Logo" className="h-14" /> {/* Second logo */}
-            </Link>
-          </div>
+          <div className="flex items-center -ml-5 ">
+  <Link href="/" className="text-lg font-bold">
+    <div className="relative h-14 w-24"> 
+      <Image src="/logo-1.webp" alt="Logo" fill className="object-contain" />
+    </div>
+  </Link>
+  <Link href="/" className="text-lg font-bold">
+    <div className="relative h-14 w-28 -ml-6"> 
+      <Image src="/logo-2.webp" alt="Logo" fill className="object-contain" />
+    </div>
+  </Link>
+</div>
+
 
           {/* Hidden for md and sm */}
           <div className="hidden md:flex items-center ml-4">
-            <img src="/message.gif" alt="News" className="h-8 w-8" /> {/* News Icon */}
+          <div className="relative h-8 w-8">
+              <Image src="/message.gif" alt="News" fill className="object-contain" />
+            </div>
           </div>
+          
 
           {/* Marquee Section */}
           <div className="marquee-container flex-1 mx-4 hidden md:block">
@@ -78,20 +87,16 @@ const Navbar = () => {
           </div>
 
           {/* Contact Information (Hidden on md and sm devices) */}
-          <div className=" flex items-center space-x-2">
+          <div className="flex items-center space-x-2">
             <div className="hidden md:flex items-center space-x-2 text-sm text-black uppercase font-semibold italic">
-              <div className="flex items-center animate-pulse text-custom-blue">
-                <img src="/loc.png" alt="Bangalore" className="mr-1 w-5 h-5" />
-                <p>Bangalore</p>
-              </div>
-              <div className="flex items-center animate-pulse text-custom-blue">
-                <img src="/loc.png" alt="Hyderabad" className="mr-1 w-5 h-5" />
-                <p>Hyderabad</p>
-              </div>
-              <div className="flex items-center animate-pulse text-custom-blue">
-                <img src="/loc.png" alt="USA" className="mr-1 w-5 h-5" />
-                <p>USA</p>
-              </div>
+              {["Bangalore", "Hyderabad", "USA"].map((location) => (
+                <div key={location} className="flex items-center animate-pulse text-custom-blue">
+                  <div className="relative w-5 h-5 mr-1">
+                    <Image src="/loc.png" alt={location} fill className="object-contain" />
+                  </div>
+                  <p>{location}</p>
+                </div>
+              ))}
             </div>
 
             {/* Mail Address with Icon */}
@@ -106,11 +111,10 @@ const Navbar = () => {
 
             {/* Phone Number with Icon */}
             <div>
-              <a
-                href="tel:+919160449000"
-                className="flex items-center text-white py-1 px-0 rounded-lg text-xs lg:text-sm whitespace-nowrap font-bold uppercase mr-3"
-              >
-                <img src="/phone.gif" alt="Phone" className="h-6 w-6 mr-1" />
+            <a href="tel:+919160449000" className="flex items-center text-white py-1 px-0 rounded-lg text-xs lg:text-sm whitespace-nowrap font-bold uppercase mr-3">
+                <div className="relative w-6 h-6 mr-1">
+                  <Image src="/phone.gif" alt="Phone" fill className="object-contain" />
+                </div>
                 <span className="text-custom-blue">+91 9160449000</span>
               </a>
             </div>

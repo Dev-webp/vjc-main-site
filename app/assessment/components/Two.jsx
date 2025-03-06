@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import {  AiOutlineBook, AiOutlineCodepen, AiOutlineShop, AiOutlineUsergroupAdd, AiOutlineCompass, AiOutlineKey } from "react-icons/ai";
 import { FaShieldAlt, FaBriefcase } from "react-icons/fa";
 import { AiFillCaretRight } from "react-icons/ai";
+
+
 import Content from "./Content"; 
 import Gworkvisa from "./Gworkvisa";
 import Gstudentvisa from "./Gstudentvisa";
@@ -311,7 +313,7 @@ const Migrate = () => {
               </p>
                   {/* Display country image below the description */}
                   <div className="text-center">
-                    <img
+                    <image
                       src={countriesData[selectedCountry]?.image}
                       alt={selectedCountry}
                       className="mx-auto mt-4 max-w-full h-auto rounded-lg shadow-md"
