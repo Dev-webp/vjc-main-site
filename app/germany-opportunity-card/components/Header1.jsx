@@ -2,6 +2,7 @@ import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
 import { FaEnvelope } from 'react-icons/fa';
 import { FaPhoneVolume } from "react-icons/fa6";
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Header = () => {
   return (
@@ -11,18 +12,22 @@ const Header = () => {
         <div className="flex items-center ml-4 sm:ml-10 lg:ml-14">
         <Link href="https://vjcoverseas.com" target="_blank" rel="noopener noreferrer" className="block" >
   
-    <img
-      src="/logo-1.png" // Replace with your logo image path
-      alt="Logo"
-      className="h-16 w-10 md:h-12 md:w-12 lg:h-16 lg:w-16" // Adjust the logo size for mobile and larger screens
-    />
+        <Image
+  src="/logo-1.png" // Ensure the image is in the public folder or provide an absolute URL
+  alt="Logo"
+  width={64} // Default width for lg:w-16 (16 * 4 = 64px)
+  height={64} // Default height for lg:h-16
+  className="h-16 w-10 md:h-12 md:w-12 lg:h-16 lg:w-16" // Maintain responsiveness
+/>
 </Link>
           <Link href="https://vjcoverseas.com"  target="_blank" rel="noopener noreferrer" className="block">
-          <img
-            src="/logo-2.png" 
-            alt="Logo"
-            className="h-16 w-24 md:h-12 md:w-12 lg:h-16 lg:w-28" // Adjust the logo size for mobile and larger screens
-          />
+          <Image
+  src="/logo-2.png" // Ensure the image is in the public folder or provide an absolute URL
+  alt="Logo"
+  width={112} // Default width for lg:w-28 (28 * 4 = 112px)
+  height={64} // Default height for lg:h-16 (16 * 4 = 64px)
+  className="h-16 w-24 md:h-12 md:w-12 lg:h-16 lg:w-28"
+/>
           </Link>
         </div>
 
@@ -69,9 +74,11 @@ const Header = () => {
 
 
         <div className='ml-0 lg:ml-[32rem] mt-1 animate-bounce'>
-          <img
+          <Image
             src="/40-1.png" // Replace with the correct image path
             alt="Description of image"
+            width={112} // Default width for lg:w-28 (28 * 4 = 112px)
+            height={64} 
             className="h-14 w-16 lg:h-24 lg:w-28 object-cover" // Adjust the size as needed
           />
         </div>

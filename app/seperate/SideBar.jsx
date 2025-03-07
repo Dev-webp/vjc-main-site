@@ -1,14 +1,16 @@
 "use client"
 import { useState } from 'react';
+import Image from 'next/image';
 
 const navItems = [
     {
       id: 1,
       icon: (
-        <img
+        <Image
           src="/migrate.png"
           alt="Migrate to UK"
-          className="w-6 h-6"
+          width={24}
+          height={24}
         />
       ),
       link: "dashboard",
@@ -17,10 +19,11 @@ const navItems = [
     {
       id: 2,
       icon: (
-        <img
+        <Image
           src="/migrate.png"
           alt="Migrate to Germany"
-          className="w-6 h-6"
+          width={24}
+          height={24}
         />
       ),
       link: "contact",
@@ -29,10 +32,11 @@ const navItems = [
     {
       id: 3,
       icon: (
-        <img
+        <Image
           src="/migrate.png"
           alt="Migrate to Canada"
-          className="w-6 h-6"
+          width={24}
+          height={24}
         />
       ),
       link: "transactions",
@@ -41,10 +45,11 @@ const navItems = [
     {
       id: 4,
       icon: (
-        <img
+        <Image
           src="/migrate.png"
           alt="Migrate to USA"
-          className="w-6 h-6"
+          width={24}
+          height={24}
         />
       ),
       link: "analytics",
@@ -53,10 +58,11 @@ const navItems = [
     {
       id: 5,
       icon: (
-        <img
+        <Image
           src="/migrate.png"
           alt="Migrate to New Zealand"
-          className="w-6 h-6"
+          width={24}
+          height={24}
         />
       ),
       link: "analytics",
@@ -65,10 +71,11 @@ const navItems = [
     {
       id: 6,
       icon: (
-        <img
+        <Image
           src="/migrate.png"
           alt="Migrate to South Africa"
-          className="w-6 h-6"
+          width={24}
+          height={24}
         />
       ),
       link: "analytics",
@@ -77,10 +84,11 @@ const navItems = [
     {
       id: 7,
       icon: (
-        <img
+        <Image
           src="/migrate.png"
           alt="Migrate to HongKong"
-          className="w-6 h-6"
+          width={24}
+          height={24}
         />
       ),
       link: "analytics",
@@ -89,10 +97,11 @@ const navItems = [
     {
       id: 8,
       icon: (
-        <img
+        <Image
           src="/migrate.png"
           alt="Migrate to Denmark"
-          className="w-6 h-6"
+          width={24}
+          height={24}
         />
       ),
       link: "analytics",
@@ -101,10 +110,11 @@ const navItems = [
     {
       id: 9,
       icon: (
-        <img
+        <Image
           src="/migrate.png"
           alt="Migrate to UAE"
-          className="w-6 h-6"
+          width={24}
+          height={24}
         />
       ),
       link: "analytics",
@@ -112,13 +122,10 @@ const navItems = [
     },
   ];
   
-  
-
 const Sidebar = () => {
   const [sidebarToggled, setSidebarToggled] = useState(false);
   const [activeId, setActiveId] = useState(null);
   const [activeContent, setActiveContent] = useState("");
-
 
   const toggleSidebar = () => {
     setSidebarToggled((prev) => !prev);
@@ -148,18 +155,16 @@ const Sidebar = () => {
     <div className="flex">
       {/* Sidebar */}
       <aside
-  className={`fixed h-screen w-72 bg-[url('/comp-1.webp')] bg-cover bg-center dark:bg-gray-950 shadow-lg transition-all ${
-    sidebarToggled ? "" : " -translate-x-full"
-  } md:translate-x-0`} // Add this line to ensure the sidebar is always visible on large devices.
->
+        className={`fixed h-screen w-72 bg-[url('/comp-1.webp')] bg-cover bg-center dark:bg-gray-950 shadow-lg transition-all ${
+          sidebarToggled ? "" : " -translate-x-full"
+        } md:translate-x-0`}
+      >
         <div className="min-h-max py-4">
-                <a href="#" className="flex items-center gap-x-3 font-semibold text-gray-800 dark:text-gray-200">
-                    <span>
-                        
-                    </span>
-                    MIGRATE
-                </a>
-            </div>
+          <a href="#" className="flex items-center gap-x-3 font-semibold text-gray-800 dark:text-gray-200">
+            <span></span>
+            MIGRATE
+          </a>
+        </div>
         <nav className="pt-10">
           <ul className="space-y-3 text-gray-800">
             {navItems.map((navItem) => (

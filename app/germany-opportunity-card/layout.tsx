@@ -1,6 +1,16 @@
 import { Metadata } from "next";
+import { PT_Serif } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Header from "./components/Header1";
+
+// Load the PT Serif font
+const ptSerif = PT_Serif({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-pt-serif",
+});
 
 export const metadata: Metadata = {
   title: "Germany Opportunity Card Eligibility Job Seeker Best Visa Immigration Consultants in Hyderabad Bangalore",
@@ -15,24 +25,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={ptSerif.variable}>
       <head>
-        {/* Meta Tags for SEO */}
+        {/* SEO Meta Tags */}
         <meta
           name="keywords"
           content="Germany, Opportunity Card, visa, immigration, work, travel"
         />
-        {/* Link to the "Inter" font from Google Fonts */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
-          rel="stylesheet"
-        />
-        {/* Google Tag Manager */}
-        <script
-          async
+
+        {/* Google Analytics using next/script */}
+        <Script
+          strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=AW-16767451796"
-        ></script>
-        <script
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
@@ -42,8 +50,11 @@ export default function RootLayout({
             `,
           }}
         />
-        {/* Tawk.to Chat Widget */}
-        <script
+
+        {/* Tawk.to Chat Widget using next/script */}
+        <Script
+          id="tawk-to"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
               var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
@@ -59,7 +70,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body style={{ fontFamily: '"PT Serif", serif' }}>
+      <body className="font-pt-serif">
         <Header />
         {children}
       </body>

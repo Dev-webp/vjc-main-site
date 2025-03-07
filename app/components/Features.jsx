@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { useInView } from 'react-intersection-observer'; // Hook to detect if the component is in view
 
 const features = [
@@ -65,11 +66,13 @@ const features = [
 const FeatureCard = ({ image, title, description, buttonLabel }) => {
   return (
     <div className="flex flex-col items-center bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 h-96">
-      <img
-        src={image}
-        alt={title}
-        className="w-full h-40 object-cover rounded-t-lg"
-      />
+  <Image
+    src={image}
+    alt={title}
+    width={500} // Set an appropriate width
+    height={160} // Set an appropriate height to match h-40 (40 * 4 = 160px)
+    className="w-full h-40 object-cover rounded-t-lg"
+  />
       <h3 className="mt-4 text-lg font-bold text-gray-800 uppercase">{title}</h3>
       <p className="mt-2 text-gray-600 text-center line-clamp-3">
         {description}

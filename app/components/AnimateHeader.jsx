@@ -23,7 +23,7 @@ const AnimatedHeader = () => {
         return prevIndex;
       });
     }, 150); // Adjust typing speed here (in ms)
-
+  
     const cursorTimer = setInterval(() => {
       if (animationComplete) {
         setShowCursor(false); // Hide cursor once typing is done
@@ -31,12 +31,26 @@ const AnimatedHeader = () => {
         setShowCursor((prev) => !prev); // Toggle cursor visibility
       }
     }, 500); // Cursor blink speed
-
+  
     return () => {
       clearInterval(typingTimer);
       clearInterval(cursorTimer);
     };
-  }, [animationComplete, currentCountryIndex]);
+  }, [animationComplete, currentCountryIndex, countries]); // Added `countries` here
+  
+  // Restart animation after completion
+  useEffect(() => {
+    if (animationComplete) {
+      const restartTimer = setTimeout(() => {
+        setCurrentLetterIndex(0);
+        setShowCursor(true);
+        setAnimationComplete(false);
+        setCurrentCountryIndex((prevIndex) => (prevIndex + 1) % countries.length); // Switch to next country
+      }, 2000); // Wait for 2 seconds before restarting animation
+  
+      return () => clearTimeout(restartTimer);
+    }
+  }, [animationComplete, countries.length]);
 
   // Restart animation after completion
   useEffect(() => {

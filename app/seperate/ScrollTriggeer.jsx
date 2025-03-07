@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Image from 'next/image';
 import { motion } from "framer-motion";
 
 const ScrollChangeImage = () => {
@@ -70,11 +71,13 @@ const ScrollChangeImage = () => {
             }}
           />
           {/* Frame Image */}
-          <img
-            src="/COUNTRY.png" // Path to your frame image
-            alt="Frame"
-            className="absolute w-full h-[65rem] object-contain z-20 -bottom-60"
-          />
+          <Image
+  src="/COUNTRY.png" // Path to your frame image
+  alt="Frame"
+  width={1920} // Set an appropriate width
+  height={1080} // Set an appropriate height
+  className="absolute w-full h-[65rem] object-contain z-20 -bottom-60"
+/>
         </div>
       </div>
 

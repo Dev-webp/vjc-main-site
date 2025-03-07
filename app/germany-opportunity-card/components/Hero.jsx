@@ -30,16 +30,25 @@ const Hero = () => {
           
 
           {/* Image placed above the h1 */}
-          <img
-            src="/1.gif" // Change to your image path
-            alt="Work in Germany"
-            className="w-[70rem] h-auto mt-16" // Adjust margin to align with curved text
-          />
-          <img
-            src="/award-vjc.png" // Change to your image path
-            alt="Work in Germany"
-            className="w-full h-auto mt-4" // Adjust margin to align with curved text
-          />
+          <div className="flex flex-col items-center lg:items-start w-full lg:w-1/2 px-4 sm:px-6 lg:px-14 mt-0 lg:mt-0 mb-20 lg:mb-24 tablet:mb-20 relative ml-4">
+  
+  {/* Image placed above the h1 */}
+  <Image
+    src="/1.gif" // Ensure the image is in the public folder or provide an absolute URL
+    alt="Work in Germany"
+    width={1120} // 70rem * 16 = 1120px
+    height={0} // Auto height adjustment
+    className="w-[70rem] h-auto mt-16"
+  />
+  
+  <Image
+    src="/award-vjc.png" // Ensure the image is in the public folder or provide an absolute URL
+    alt="Award VJC"
+    width={1920} // Assuming full width, adjust if necessary
+    height={0} // Auto height adjustment
+    className="w-full h-auto mt-4"
+  />
+</div>
 
           {/* Heading */}
           <h1 className="font-bold text-3xl sm:text-[2.5rem] lg:text-[3rem] leading-tight mt-0 mb-0 text-center lg:text-center uppercase text-black">

@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { FaCheckCircle } from 'react-icons/fa';
 
 const EligibilityRequirements = () => {
@@ -43,12 +44,14 @@ const EligibilityRequirements = () => {
           </div>
 
           <div className="lg:w-1/2 w-full mt-2 lg:mt-0 ml-0 md:ml-20 lg:ml-20">
-            <img
-              src="/germany opportunity card calculator.png"
-              alt="Germany Opportunity Card"
-              className="object-cover w-[20rem] h-[20rem] md:w-[26rem] md:h-[37rem] lg:w-[26rem] lg:h-[25rem] ml-14 md:ml-0 lg:ml-0 tablet:ml-36 rounded-2xl shadow-2xl transition-transform transform hover:scale-105"
-            />
-          </div>
+  <Image
+    src="/germany opportunity card calculator.png"
+    alt="Germany Opportunity Card"
+    width={416} // Adjust based on actual image resolution
+    height={592} // Adjust based on aspect ratio
+    className="object-cover w-[20rem] h-[20rem] md:w-[26rem] md:h-[37rem] lg:w-[26rem] lg:h-[25rem] ml-14 md:ml-0 lg:ml-0 tablet:ml-36 rounded-2xl shadow-2xl transition-transform transform hover:scale-105"
+  />
+</div>
         </div>
 
         {/* Second Section: Image on left, content on right */}
@@ -69,12 +72,14 @@ const EligibilityRequirements = () => {
           </div>
 
           <div className="lg:w-1/2 w-full mt-2 lg:mt-0 ml-0 md:ml-20 lg:ml-20">
-            <img
-              src="/germany opportunity card visa.png"
-              alt="Germany Opportunity Card"
-              className="object-cover w-[20rem] h-[20rem] md:w-[26rem] md:h-[37rem] lg:w-[26rem] lg:h-[25rem] ml-14 md:ml-0 lg:ml-0 tablet:ml-36 rounded-2xl shadow-2xl transition-transform transform hover:scale-105"
-            />
-          </div>
+  <Image
+    src="/germany opportunity card visa.png"
+    alt="Germany Opportunity Card"
+    width={416} // Adjust based on actual image resolution
+    height={592} // Adjust based on aspect ratio
+    className="object-cover w-[20rem] h-[20rem] md:w-[26rem] md:h-[37rem] lg:w-[26rem] lg:h-[25rem] ml-14 md:ml-0 lg:ml-0 tablet:ml-36 rounded-2xl shadow-2xl transition-transform transform hover:scale-105"
+  />
+</div>
         </div>
       </div>
     </>

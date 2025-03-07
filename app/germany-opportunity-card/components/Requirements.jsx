@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { FaGraduationCap, FaLanguage, FaUser, FaMapMarkerAlt, FaUsers } from 'react-icons/fa';
 
 const Requirements = () => {
@@ -58,13 +59,15 @@ const Requirements = () => {
         
         {/* Left Side Image */}
         <div className="lg:w-1/2 w-full mb-10 lg:mb-0 mt-5">
-          <img 
+          <Image 
             src="/germany opportunity card requirements.png" 
             alt="UK Study Visa" 
+            width={320}  // Adjust width
+    height={280} // Adjust heigh
             className="object-cover w-[100%] h-[31rem] rounded-2xl shadow-2xl transition-transform transform hover:scale-105"
           />
         </div>
-
+{/*  */}
         {/* Requirements Content */}
         <div className="lg:w-1/2 w-full">
           <ul className="space-y-6">
