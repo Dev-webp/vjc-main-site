@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import FAQ from "./FAQ";
 import Canadafaq from "./canadafaq";
 import Usafaq from "./Usafaq";
@@ -51,10 +52,12 @@ const CountriesData = () => {
               >
                 {/* Country Image */}
                 <div className="relative">
-                  <img
+                  <Image
                     src={countriesData[country].img}
                     alt={country}
-                    className="w-32 h-32 object-cover rounded-full border-2 border-orange-500"
+                    width={128} // 32px * 4 for proper scaling
+                    height={128}
+                    className="object-cover rounded-full border-2 border-orange-500"
                   />
                   {/* Country Name Overlay */}
                   <div className="absolute inset-0 flex items-center justify-center rounded-full">

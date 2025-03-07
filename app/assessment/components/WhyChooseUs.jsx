@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaArrowRight } from 'react-icons/fa'; // Import the arrow icon from react-icons
+import Image from 'next/image';
 
 const WhyChooseUs = () => {
   const reasons = [
@@ -45,10 +46,12 @@ const WhyChooseUs = () => {
             className="group border border-orange-400 p-8 rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out transform hover:scale-105 hover:bg-gradient-to- flex flex-col justify-between"
           >
             <div className="flex justify-center mb-6">
-              <img
+            <Image
                 src={reason.image}
                 alt={reason.title}
-                className="w-24 h-24 object-cover rounded-full border-4 border-blue-500"
+                width={96}  // Adjust width
+                height={96} // Adjust height
+                className="object-cover rounded-full border-4 border-blue-500"
               />
             </div>
             <h3 className="text-xl font-semibold text-gray-800 mb-4">{reason.title}</h3>

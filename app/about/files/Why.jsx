@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { FaRocket, FaHandshake, FaTrophy } from 'react-icons/fa';
 
 const Why = () => {
@@ -60,10 +61,14 @@ const Why = () => {
 
           {/* Right Side Image */}
           <div className="lg:w-1/2 w-full mb-10 lg:mb-0 ml-0 md:ml-20 lg:ml-20">
-            <img 
+          <Image 
               src="/germany opportunity card processing time.png" 
               alt="Germany Opportunity Card Processing Time" 
+              width={416} 
+              height={592} 
               className="object-cover w-[20rem] h-[20rem] md:w-[26rem] md:h-[37rem] lg:w-[26rem] lg:h-[37rem] ml-14 md:ml-0 lg:ml-0 tablet:ml-24 rounded-2xl shadow-2xl transition-transform transform hover:scale-105"
+              priority 
+              unoptimized
             />
           </div>
 
@@ -96,10 +101,14 @@ const Why = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {awards.map((award, index) => (
               <div key={index} className="flex flex-col items-center p-4  bg-gray-50 rounded-lg shadow-md">
-                <img 
+                 <Image 
                   src={award.image} 
                   alt={award.title} 
+                  width={128} 
+                  height={128} 
                   className="w-32 h-32 object-cover rounded-full mb-4"
+                  priority 
+                  unoptimized
                 />
                 <h4 className="text-xl font-semibold text-dark mb-2">{award.year}</h4>
                 <p className="text-center text-sm text-gray-600 max-w-xs">{award.title}</p>

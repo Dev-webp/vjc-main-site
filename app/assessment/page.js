@@ -33,31 +33,11 @@ const ContactPage = () => {
 
      
       <HeroSection />  
-      
-
-        
-     
-
-  
-
-
-
-
-     
-
-        
-        
-        
- 
        
         <WhyChooseUs /> 
         
         <ReviewSlider />
        
-        
-       
-
-    
       </div>
     </>
   );

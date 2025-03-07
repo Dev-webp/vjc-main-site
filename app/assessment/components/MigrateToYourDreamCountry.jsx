@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Image from 'next/image';
 
 const MigrateToYourDreamCountry = () => {
   // State to track hover effect on the images
@@ -35,9 +36,11 @@ const MigrateToYourDreamCountry = () => {
             onMouseEnter={() => setHoveredIndex(index)} // Hover effect
             onMouseLeave={() => setHoveredIndex(null)}
           >
-            <img
+             <Image
               src={img}
               alt={name}
+              width={400} // Adjust based on your layout
+              height={256} // Adjust based on your layout
               className={`w-full h-64 object-cover transition-transform duration-300 ${hoveredIndex === index ? 'scale-110' : 'scale-100'} animate-pulse`}
             />
             {/* Name at the center, always visible */}

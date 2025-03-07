@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const Content = () => {
   return (
@@ -29,13 +30,15 @@ const Content = () => {
 
       <div className="flex flex-col lg:flex-row items-start h-auto lg:space-x-6 space-y-4 lg:space-y-0">
 
-  <div className="flex-shrink-0 mx-auto lg:mx-0">
-    <img
-      src="/gocimg.png"
-      alt="Image description"
-      className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:w-80 lg:h-70 object-contain shadow-lg rounded-lg"
-    />
-  </div>
+      <div className="flex-shrink-0 mx-auto lg:mx-0">
+          <Image
+            src="/gocimg.png"
+            alt="Germany Opportunity Card"
+            width={320} // Adjust width as per requirement
+            height={280} // Adjust height as per requirement
+            className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:w-80 lg:h-70 object-contain shadow-lg rounded-lg"
+          />
+        </div>
 
   {/* Text Section */}
   <div className="px-4 lg:px-0">

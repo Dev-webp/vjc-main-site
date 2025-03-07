@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css'; 
 import 'slick-carousel/slick/slick-theme.css';
@@ -63,10 +64,12 @@ const ReviewsSlider = () => {
         <Slider {...settings}>
           {reviews.map((review, index) => (
             <div key={index} className="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-lg mb-6 border border-orange-500 h-[400px]">
-              <div className="flex justify-center w-full mb-4" style={{marginBottom:'20px'}}>
-                <img
+              <div className="flex justify-center w-full mb-4" style={{ marginBottom: '20px' }}>
+                <Image
                   src={review.photo}
                   alt={review.name}
+                  width={96} // Adjust width (px)
+                  height={96} // Adjust height (px)
                   className="w-24 h-24 object-cover rounded-full"
                 />
               </div>
