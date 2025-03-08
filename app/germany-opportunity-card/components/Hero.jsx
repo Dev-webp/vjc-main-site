@@ -13,9 +13,9 @@ const Hero = () => {
         <Image
           src="/germany opportunity card apply.jpg"
           alt="Background Image"
-          fill // This will make the image fill the container
-          style={{ objectFit: 'cover' }} // Ensures the image covers the area without distorting aspect ratio
-          priority // Makes sure the background image is loaded immediately
+          fill
+          style={{ objectFit: 'cover' }}
+          priority
         />
       </div>
 
@@ -28,32 +28,28 @@ const Hero = () => {
         {/* Left Side Content */}
         <div className="flex flex-col items-center lg:items-start w-full lg:w-1/2 px-4 sm:px-6 lg:px-14 mt-0 lg:mt-0 mb-20 lg:mb-24 tablet:mb-20 relative ml-4">
           
-
           {/* Image placed above the h1 */}
-          <div className="flex flex-col items-center lg:items-start w-full lg:w-1/2 px-4 sm:px-6 lg:px-14 mt-0 lg:mt-0 mb-20 lg:mb-24 tablet:mb-20 relative ml-4">
-  
-  {/* Image placed above the h1 */}
-  <Image
-    src="/1.gif" // Ensure the image is in the public folder or provide an absolute URL
-    alt="Work in Germany"
-    width={1120} // 70rem * 16 = 1120px
-    height={0} // Auto height adjustment
-    className="w-[70rem] h-auto mt-16"
-  />
-  
-  <Image
-    src="/award-vjc.png" // Ensure the image is in the public folder or provide an absolute URL
-    alt="Award VJC"
-    width={1920} // Assuming full width, adjust if necessary
-    height={0} // Auto height adjustment
-    className="w-full h-auto mt-4"
-  />
-</div>
+          <Image
+            src="/1.gif" // Change to your image path
+            alt="Work in Germany"
+            width={1120} // Adjusted to match the original "w-[70rem]"
+            height={700} // Auto-scaled
+            className="mt-16"
+            priority
+          />
+          <Image
+            src="/award-vjc.png" // Change to your image path
+            alt="Award VJC"
+            width={600} // Auto-scaled
+            height={300} // Auto-scaled
+            className="w-full h-auto mt-4"
+            priority
+          />
 
           {/* Heading */}
           <h1 className="font-bold text-3xl sm:text-[2.5rem] lg:text-[3rem] leading-tight mt-0 mb-0 text-center lg:text-center uppercase text-black">
-            <span className="text-saffron">
-              Work in Germany with <span className="inline-block relative">VJC OVERSEAS</span>
+            <span className="text-saffron" style={{ fontFamily: "Times New Roman, Times, serif" }}>
+              Work in <span className="inline-block relative"> Germany with</span> <span className="inline-block relative">VJC OVERSEAS</span>
             </span>
           </h1>
 
@@ -74,7 +70,6 @@ const Hero = () => {
 
         {/* Right Side Form */}
         <div id="form" className="w-full lg:w-1/2 flex justify-center lg:justify-start px-0 sm:px-0 lg:px-0">
-        
           <Form />
         </div>
       </div>
