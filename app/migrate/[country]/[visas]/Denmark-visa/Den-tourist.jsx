@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 
 const Dentourist = () => {
     return (
@@ -15,9 +16,11 @@ const Dentourist = () => {
             <p className='mb-6'>Are you dreaming of exploring Denmark’s charming cities, stunning coastal landscapes, and rich cultural heritage? At VJC Overseas, we make it easier for you to obtain a Denmark Tourist Visa so you can experience the best of this beautiful Scandinavian country. Whether you’re visiting for leisure, tourism, or short business activities, we’re here to guide you through every step of the application process.</p>
             <div className="flex-col lg:flex-row items-start h-auto lg:space-x-6 space-y-4 lg:space-y-0">
                 <div className="flex justify-center m-6 flex-shrink-0 mx-auto lg:mx-0 ">
-                    <img
+                    <Image
                         src="/assets/Dentourist.png"
                         alt="Australia Business Visa"
+                        width={500} // Replace with your image's actual width
+                        height={300}
 
                         className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:w-full lg:h-70 object-contain shadow-lg rounded-lg"
                     />

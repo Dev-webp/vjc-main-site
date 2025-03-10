@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 
 const Newzestud = () => {
   return (
@@ -20,9 +21,11 @@ const Newzestud = () => {
       <p>At VJC Overseas, we understand the significance of a smooth visa application process. Our experienced team is here to guide you through every step of applying for a New Zealand Student Visa, ensuring that you meet all the requirements and increase your chances of approval.</p>
       <div className="flex mb-6 flex-col lg:flex-row items-start h-auto lg:space-x-6 space-y-4 lg:space-y-0">
           <div className="flex-shrink-0 mx-auto lg:mx-0">
-              <img
+              <Image
                   src="/assets/Newzestud.png"
                   alt="Australia Business Visa"
+                  width={500} // Replace with your image's actual width
+                  height={300}
 
                   className="w-full max-w-xs mt-5 sm:max-w-sm md:max-w-md lg:w-full lg:h-60 object-contain shadow-lg rounded-lg"/>
           </div>

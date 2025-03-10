@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useRouter, useParams } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 import Goppcardvisa from "./Germany-visa/Goppcardvisa";
-import Canadapr from "./Canadapages/Canadapr";
+import Canadapr from "./canadapages/Canadapr";
 import Ausstud from "./Australia-visa/Aus-stud";
 import USAstud from "./USA-visa/USA-stud";
 import UKBvisa from "./UK-visa/UKBvisa";
@@ -109,7 +109,14 @@ const backgroundImages = {
   germany: "/germanybgimg.jpg",
   canada: "/canadabgimg.jpg",
   "united-states": "/usabgimg.jpg",
-  australia: "/australiabgimg.jpg",
+  australia: "/australiabgimg.jpg", 
+  "united-kingdom": "/ukk.jpg",
+  "new-zealand": "/nzz.jpg",
+  "south-africa": "/sa666.png",
+  "hong-kong": "/hongkong444.jpg",
+  uae: "/uae333.jpg",
+  denmark: "/denmark222.jpg",
+
 };
 
 const MigrateCountry = () => {

@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 
 const Denstud = () => {
   return (
@@ -15,9 +16,11 @@ const Denstud = () => {
       <p className='mb-6'>Studying in Denmark offers students an excellent opportunity to experience world-class education, a high standard of living, and an internationally recognized degree. At VJC Overseas, we guide you through every step of obtaining a Denmark student visa, ensuring a smooth application process so you can focus on your academic journey.</p>
       <div className="flex flex-col lg:flex-row items-start h-auto lg:space-x-6 space-y-4 lg:space-y-0">
           <div className="flex-shrink-0 mx-auto lg:mx-0">
-              <img
+              <Image
                   src="/assets/Denstud.png"
                   alt="Australia Business Visa"
+                  width={500} // Replace with your image's actual width
+                  height={300}
 
                   className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:w-96 lg:h-60 object-contain shadow-lg rounded-lg"
               />

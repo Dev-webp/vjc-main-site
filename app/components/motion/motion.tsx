@@ -1,4 +1,5 @@
 import "./styles.css";
+import Image from "next/image";
 import { motion, Variants } from "framer-motion";
 
 interface Props {
@@ -36,7 +37,13 @@ function Card({ imageSrc, hueA, hueB }: Props) {
     >
       <div className="splash" style={{ background }} />
       <motion.div className="card" variants={cardVariants}>
-        <img src={imageSrc} alt="food" className="card-image" /> {/* Replace emoji with image */}
+      <Image
+          src={imageSrc} // Step 2: Replace <img> with <Image>
+          alt="food"
+          width={300} // Specify appropriate width
+          height={200} // Specify appropriate height
+          className="card-image"
+        />
       </motion.div>
     </motion.div>
   );

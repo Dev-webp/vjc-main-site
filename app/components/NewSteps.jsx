@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaPassport, FaClipboardList, FaRegPaperPlane, FaMoneyCheckAlt, FaCheckCircle, FaTruckMoving, FaPlayCircle } from "react-icons/fa";
 import { MdArrowRight, MdArrowLeft } from "react-icons/md";
@@ -99,8 +100,16 @@ const VisaProcessSteps = () => {
 
                   {/* Image Section */}
                   <div className={`w-1/2 ${isLeftSide ? '' : 'order-last'}`}>
-                    <img src={step.image} alt={step.title} className="w-full h-auto lg:h-full rounded-lg mb-0 lg:mb-0 mt-10 md:mt-0 lg:mt-0" />
-                  </div>
+  <Image
+    src={step.image}
+    alt={step.title}
+    width={600} // Replace with the actual width of your images
+    height={500} // Replace with the actual height of your images
+    className="w-full h-auto lg:h-full rounded-lg mb-0 lg:mb-0 mt-20 md:mt-20 lg:mt-20"
+  />
+</div>
+
+
                 </motion.div>
               );
             })}
