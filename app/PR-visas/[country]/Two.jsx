@@ -4,56 +4,64 @@ import React, { useEffect, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import Form from "./Form"; // Ensure your Form component is properly imported
+import Form from "./Form";
+import CanadaPR from "./CanadaPR";
+import Australiapr from "./Australiapr";
+import UKpr from "./UKpr";
+import Newzelandpr from "./Newzelandpr";
+import Germanybluecard from "./Germanybluecard";
+import Usagreencard from "./Usagreencard";
 
 const visaData = [
-  { 
-    name: "Canada Permanent Residency Visa", 
-    path: "/PR-visas/canada-PR-visa", 
-    image: "/images/canada.jpg", 
-    description: "Start your journey to Canada with a PR visa. Experience a high quality of life and endless opportunities." 
+  {
+    name: "Canada Permanent Residency Visa",
+    path: "/PR-visas/canadapr",
+    image: "/canadapr.webp",
   },
-  { 
-    name: "Australia Permanent Residency Visa", 
-    path: "/PR-visas/australia-pr", 
-    image: "/images/australia.jpg", 
-    description: "Live and work in Australia permanently. Enjoy a world-class lifestyle and career growth." 
+  {
+    name: "Australia Permanent Residency Visa",
+    path: "/PR-visas/australiapr",
+    image: "/australia.jpg",
   },
-  { 
-    name: "UK Permanent Residency Visa", 
-    path: "/PR-visas/uk-pr", 
-    image: "/images/uk.jpg", 
-    description: "Secure your future in the UK with a PR visa. Access top-tier education and job prospects." 
+  {
+    name: "UK Permanent Residency Visa",
+    path: "/PR-visas/ukpr",
+    image: "/dmbusi.jpg",
   },
-  { 
-    name: "New Zealand Permanent Residency Visa", 
-    path: "/PR-visas/new-zealand-pr", 
-    image: "/images/newzealand.jpg", 
-    description: "Move to New Zealand with a PR visa and enjoy a peaceful and prosperous life." 
+  {
+    name: "New Zealand Permanent Residency Visa",
+    path: "/PR-visas/newzelandpr",
+    image: "/nzpr.jpg",
   },
-  { 
-    name: "Germany Blue Card Visa", 
-    path: "/PR-visas/germany-blue-card", 
-    image: "/images/germany.jpg", 
-    description: "Work and settle in Germany with the EU Blue Card, your gateway to Europe." 
+  {
+    name: "Germany Blue Card Visa",
+    path: "/PR-visas/germanybluecard",
+    image: "/germanypr.jpg",
   },
-  { 
-    name: "USA Green Card", 
-    path: "/PR-visas/usa-green-card", 
-    image: "/images/usa.jpg", 
-    description: "Achieve your American dream with a Green Card, offering a lifetime of opportunities." 
+  {
+    name: "USA Green Card",
+    path: "/PR-visas/usagreencard",
+    image: "/usapr.jpg",
   },
 ];
+
+const defaultVisa = {
+  name: "Permanent Residency Visa",
+  path: "/PR-visas",
+  image: "/1.jpg", // Default background image
+};
 
 const Migrate = () => {
   const router = useRouter();
   const pathname = usePathname();
-  const [selectedVisa, setSelectedVisa] = useState(visaData[0]);
+  const [selectedVisa, setSelectedVisa] = useState(defaultVisa);
 
   useEffect(() => {
     const foundVisa = visaData.find((visa) => visa.path === pathname);
     if (foundVisa) {
       setSelectedVisa(foundVisa);
+    } else {
+      setSelectedVisa(defaultVisa);
     }
   }, [pathname]);
 
@@ -63,75 +71,93 @@ const Migrate = () => {
   };
 
   return (
-    <div className="relative w-full min-h-screen flex flex-col">
-      {/* Top Half: Dynamic Background Image, Text & Form */}
+    <div className="w-full min-h-screen flex flex-col">
+      {/* ===== TOP SECTION ===== */}
       <div
-        className="w-full h-[50vh] bg-cover bg-center transition-all duration-500 flex items-center justify-center"
+        className="relative w-full min-h-[90vh] bg-cover bg-center"
         style={{ backgroundImage: `url(${selectedVisa.image})` }}
       >
-        <div className="relative flex flex-col lg:flex-row items-center justify-between p-10 gap-10 w-full max-w-screen-xl">
-          {/* Text Section */}
-          <motion.div
-            className="w-full lg:w-1/2 text-white text-center lg:text-left"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <motion.h1
-              className="font-semibold uppercase leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem]"
-              style={{ fontFamily: "Times New Roman, serif" }}
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/50 z-0" />
+        <div className="relative z-10 w-full h-full flex items-center justify-center px-6 lg:px-12 py-8">
+          <div className="w-full flex flex-col lg:flex-row justify-between items-center gap-10">
+            {/* Text Section */}
+            <motion.div
+              className="w-full lg:w-1/2 text-white text-center lg:text-left pt-24 sm:pt-32 lg:pt-0 lg:pl-10"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
             >
-              {selectedVisa.name}
-            </motion.h1>
-            <motion.p
-              className="mt-4 text-lg font-medium"
-              style={{ fontWeight: "bolder", fontFamily: "Times New Roman, serif" }}
-            >
-              {selectedVisa.description}
-            </motion.p>
-          </motion.div>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3rem] font-semibold uppercase leading-tight">
+                {selectedVisa.name}
+              </h1>
+            </motion.div>
 
-          {/* Form Section (Stays Constant) */}
-          <div className="w-full lg:w-1/2">
-            <Form />
+            {/* Form Section */}
+            <div className="w-full lg:w-1/2 mt-8 lg:mt-12">
+              <Form />
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Bottom Half: Visa Buttons & Content */}
-      <div className="relative z-10 max-w-screen-xl mx-auto px-4 pt-10 pb-20">
-        {/* Title */}
-        <div className="flex justify-center md:justify-start mb-8">
-          <h2 className="text-3xl font-bold text-gray-900 text-center md:text-left">
-            Select Your Visa Option
+      {/* ===== BOTTOM SECTION ===== */}
+      <div className="relative z-10 w-full bg-white px-4 sm:px-6 lg:px-12 pt-10 pb-16">
+        {/* Section Title */}
+        <div className="flex justify-center md:justify-start mb-8 ml-16">
+          <h2 className="text-3xl font-bold text-gray-800 bg-gradient-to-r from-orange-500 to-black bg-clip-text text-transparent">
+            <span className="block md:text-left text-center">Plan Your Move,</span>
+            <span className="block text-center">Live Your Dream</span>
           </h2>
         </div>
 
-        {/* White Section for Visa Buttons & Content */}
-        <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-8 md:p-10 flex flex-col md:flex-row gap-8">
-          {/* Visa Selection Buttons */}
+        {/* Visa Options and Content Section */}
+        <div className="w-full flex flex-col md:flex-row gap-8 md:gap-10 items-start">
+          {/* Visa Buttons Section */}
           <div className="w-full md:w-1/3">
             {visaData.map((visa) => (
-              <div key={visa.path} className="mb-4 w-full flex justify-center">
+              <div key={visa.path} className="mb-4 w-full">
                 <button
-                  className={`w-[350px] flex items-center justify-between text-lg font-semibold px-6 py-4 rounded-xl transition duration-300 shadow-lg ${
+                  className={`w-full flex items-center justify-between text-lg font-semibold px-6 py-4 rounded-xl transition duration-300 shadow-lg ${
                     selectedVisa.path === visa.path
                       ? "bg-orange-500 text-white border-orange-500 shadow-orange-400"
-                      : "bg-white text-black border border-orange-500 hover:bg-orange-500 hover:text-white"
+                      : "bg-transparent text-black border border-orange-500 hover:bg-orange-500 hover:text-white"
                   } transform hover:scale-105`}
                   onClick={() => handleVisaClick(visa)}
                 >
                   {visa.name}
-                  <ArrowRight className="w-6 h-6 transition duration-300" />
+                  <ArrowRight className="w-6 h-6" />
                 </button>
               </div>
             ))}
           </div>
 
-          {/* Dynamic Content Section */}
-          <div className="w-full md:w-2/3 bg-gray-100 p-6 rounded-xl shadow-md border border-gray-300">
-            <h3 className="text-2xl font-semibold text-gray-800">{selectedVisa.name}</h3>
-            <p className="mt-4 text-gray-600">{selectedVisa.description}</p>
+          {/* Visa Info Content Box — moved further up */}
+          <div
+            className="w-full md:w-2/3 p-4 md:p-6 rounded-xl border border-gray-300 shadow-md relative -mt-32 sm:-mt-28"
+            style={{ maxHeight: "700px", minHeight: "450px", overflowY: "auto" }}
+          >
+            {selectedVisa.path === defaultVisa.path ? (
+              <div className="text-gray-700 text-lg leading-relaxed">
+                Please select a visa type from the left to view more detailed information about that particular Permanent Residency visa.
+              </div>
+            ) : selectedVisa.path === "/PR-visas/canadapr" ? (
+              <CanadaPR />
+            ) : selectedVisa.path === "/PR-visas/australiapr" ? (
+              <Australiapr />
+            ) : selectedVisa.path === "/PR-visas/ukpr" ? (
+              <UKpr />
+            ) : selectedVisa.path === "/PR-visas/newzelandpr" ? (
+              <Newzelandpr />
+            ) : selectedVisa.path === "/PR-visas/germanybluecard" ? (
+              <Germanybluecard />
+            ) : selectedVisa.path === "/PR-visas/usagreencard" ? (
+              <Usagreencard />
+            ) : (
+              <div className="text-gray-700 text-lg leading-relaxed">
+                Information about <strong>{selectedVisa.name}</strong> will be displayed here.
+              </div>
+            )}
           </div>
         </div>
       </div>

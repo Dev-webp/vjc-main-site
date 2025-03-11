@@ -2,77 +2,140 @@
 
 import React, { useEffect, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import Form from "./Form";
+import Content from "./Content"; // ✅ Import Content component
 
 const visaData = [
-  { name: "Canada Permanent Residency Visa", path: "/PR-visas/canada-PR-visa", image: "/2.webp" },
-  { name: "Australia Permanent Residency Visa", path: "/PR-visas/australia-pr", image: "/images/australia.jpg" },
-  { name: "UK Permanent Residency Visa", path: "/PR-visas/uk-pr", image: "/images/uk.jpg" },
-  { name: "New Zealand Permanent Residency Visa", path: "/PR-visas/new-zealand-pr", image: "/images/newzealand.jpg" },
-  { name: "Germany Blue Card Visa", path: "/PR-visas/germany-blue-card", image: "/images/germany.jpg" },
-  { name: "USA Green Card", path: "/PR-visas/usa-green-card", image: "/images/usa.jpg" },
+  {
+    name: "Canada Permanent Residency Visa",
+    path: "/PR-visas/canadapr",
+    image: "/1.jpg",
+  },
+  {
+    name: "Australia Permanent Residency Visa",
+    path: "/PR-visas/australiapr",
+    image: "/airplane.png",
+  },
+  {
+    name: "UK Permanent Residency Visa",
+    path: "/PR-visas/ukpr",
+    image: "/dmbusi.jpg",
+  },
+  {
+    name: "New Zealand Permanent Residency Visa",
+    path: "/PR-visas/newzealandpr",
+    image: "/images/newzealand.jpg",
+  },
+  {
+    name: "Germany Blue Card Visa",
+    path: "/PR-visas/germanybluecard",
+    image: "/images/germany.jpg",
+  },
+  {
+    name: "USA Green Card",
+    path: "/PR-visas/usagreencard",
+    image: "/images/usa.jpg",
+  },
 ];
+
+const defaultVisa = {
+  name: "Permanent Residency Visa",
+  path: "/PR-visas",
+  image: "/pr1.jpg",
+};
 
 const Migrate = () => {
   const router = useRouter();
   const pathname = usePathname();
-  const [background, setBackground] = useState(visaData[0].image);
-  const [selectedVisa, setSelectedVisa] = useState(visaData[0].name);
+  const [selectedVisa, setSelectedVisa] = useState(defaultVisa);
 
   useEffect(() => {
     const foundVisa = visaData.find((visa) => visa.path === pathname);
     if (foundVisa) {
-      setBackground(foundVisa.image);
-      setSelectedVisa(foundVisa.name);
+      setSelectedVisa(foundVisa);
+    } else {
+      setSelectedVisa(defaultVisa);
     }
   }, [pathname]);
 
-  const handleVisaClick = (path, image, name) => {
-    setBackground(image);
-    setSelectedVisa(name);
-    router.push(path);
+  const handleVisaClick = (visa) => {
+    setSelectedVisa(visa);
+    router.push(visa.path);
   };
 
   return (
-    <div className="relative w-full min-h-screen flex flex-col">
-      {/* Top Half Background Image */}
+    <div className="w-full min-h-screen flex flex-col">
+      {/* ===== TOP SECTION ===== */}
       <div
-        className="w-full h-[50vh] bg-cover bg-center transition-all duration-500"
-        style={{ backgroundImage: `url(${background})` }}
-      ></div>
+        className="relative w-full min-h-[90vh] bg-cover bg-center"
+        style={{ backgroundImage: `url(${selectedVisa.image})` }}
+      >
+        <div className="absolute inset-0 bg-black/60 z-0" />
+        <div className="relative z-10 w-full h-full flex items-center justify-center px-4 sm:px-6 lg:px-12 py-8">
+          <div className="w-full flex flex-col lg:flex-row justify-between items-center gap-10">
+            <motion.div
+              className="w-full lg:w-1/2 text-white text-center lg:text-left pt-20 sm:pt-32 lg:pt-0 lg:pl-10"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3rem] font-semibold uppercase leading-tight">
+                {selectedVisa.name}
+              </h1>
+              <p className="mt-4 text-base sm:text-lg lg:text-xl max-w-xl">
+                Start your migration journey with the right Permanent Residency Visa option. Choose your destination and let us guide you.
+              </p>
+            </motion.div>
+            <div className="w-full lg:w-1/2 mt-8 lg:mt-12">
+              <Form />
+            </div>
+          </div>
+        </div>
+      </div>
 
-      {/* Content Section */}
-      <div className="relative z-10 max-w-screen-xl mx-auto px-4 pt-10 pb-20">
-        {/* Title */}
-        <div className="flex justify-center md:justify-start mb-8">
-          <h2 className="text-3xl font-bold text-gray-900 text-center md:text-left">
-            Migrate with the Right Visa Option
+      {/* ===== BOTTOM SECTION ===== */}
+      <div className="relative z-10 w-full bg-white px-4 sm:px-6 lg:px-12 pt-10 pb-16">
+        <div className="flex justify-center md:justify-start mb-8 ml-16">
+          <h2 className="text-3xl font-bold text-gray-800 bg-gradient-to-r from-orange-500 to-black bg-clip-text text-transparent">
+            <span className="block md:text-left text-center">Plan Your Move,</span>
+            <span className="block text-center">Live Your Dream</span>
           </h2>
         </div>
 
-        {/* White Section for Visa Buttons & Content */}
-        <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-8 md:p-10 flex flex-col md:flex-row gap-8">
-          {/* Visa Selection Buttons */}
+        <div className="w-full flex flex-col md:flex-row gap-8 md:gap-10 items-start">
+          {/* Visa Buttons */}
           <div className="w-full md:w-1/3">
-            {visaData.map(({ name, path, image }) => (
-              <div key={path} className="mb-4 w-full flex justify-center">
+            {visaData.map((visa) => (
+              <div key={visa.path} className="mb-4 w-full">
                 <button
-                  className="w-[350px] flex items-center justify-between text-lg font-semibold bg-white text-black border border-orange-500 px-6 py-4 rounded-xl transition duration-300 
-                  shadow-lg shadow-orange-200 hover:shadow-2xl hover:shadow-orange-400 
-                  hover:bg-orange-500 hover:text-white transform hover:scale-105"
-                  onClick={() => handleVisaClick(path, image, name)}
+                  className={`w-full flex items-center justify-between text-base sm:text-lg font-semibold px-5 sm:px-6 py-3 sm:py-4 rounded-xl transition duration-300 shadow-lg ${
+                    selectedVisa.path === visa.path
+                      ? "bg-orange-500 text-white border-orange-500 shadow-orange-400"
+                      : "bg-transparent text-black border border-orange-500 hover:bg-orange-500 hover:text-white"
+                  } transform hover:scale-105`}
+                  onClick={() => handleVisaClick(visa)}
                 >
-                  {name}
-                  <ArrowRight className="w-6 h-6 text-black transition duration-300 group-hover:text-white" />
+                  {visa.name}
+                  <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
                 </button>
               </div>
             ))}
           </div>
 
-          {/* Dynamic Content Section */}
-          <div className="w-full md:w-2/3 bg-gray-100 p-6 rounded-xl shadow-md border border-gray-300">
-            <h3 className="text-2xl font-semibold text-gray-800">{selectedVisa}</h3>
-            <p className="mt-4 text-gray-600">Details about {selectedVisa} will be displayed here.</p>
+          {/* Description Section (Visa Info Content Box) */}
+          <div
+            className="w-full md:w-2/3 p-4 sm:p-5 rounded-xl border border-gray-300 shadow-md -mt-12 sm:-mt-20 lg:-mt-24"
+            style={{ maxHeight: "750px", minHeight: "480px", overflowY: "auto" }}
+          >
+            {selectedVisa.path === defaultVisa.path ? (
+              <div className="text-gray-700 text-base sm:text-lg leading-relaxed">
+                <Content selectedVisa={selectedVisa} />
+              </div>
+            ) : (
+              <Content selectedVisa={selectedVisa} />
+            )}
           </div>
         </div>
       </div>

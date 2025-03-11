@@ -1,7 +1,10 @@
 "use client";
 import React, { useState, useEffect } from 'react';
+import { useMemo } from "react";
 import { useRouter, useParams } from 'next/navigation';
 import { ArrowRight } from 'lucide-react';
+
+
 import Goppcardvisa from './Germany-visa/Goppcardvisa';
 import Gworkvisa from './Germany-visa/Gworkvisa';
 import Gstudentvisa from './Germany-visa/Gstudentvisa';
@@ -276,7 +279,7 @@ const defaultBackgroundImages = {
 export default function MigrateCountry() {
   const router = useRouter();
   const { country, visas } = useParams();
-  const visasList = countryVisaData[country] || [];
+  const visasList = useMemo(() => countryVisaData[country] || [], [country]);
   
   const defaultVisaTitle = visasList.length ? visasList[0].name : '';
   const [selectedVisaPath, setSelectedVisaPath] = useState(null);
@@ -285,7 +288,6 @@ export default function MigrateCountry() {
   const VisaComponent = visas ? visaComponents[`${country}-${visas}`] : (country === 'germany' ? Goppcardvisa : null);
 
   useEffect(() => {
-    // When the URL param changes, update the state accordingly.
     if (visas) {
       const matchedVisa = visasList.find(v => v.path === `/migrate/${country}/${visas}`);
       if (matchedVisa) {

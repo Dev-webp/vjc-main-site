@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 
 const UAEgreen = () => {
     return (
@@ -21,9 +22,11 @@ const UAEgreen = () => {
             <p>Launched in 2021, the UAE Green Visa is a long-term residency permit designed to attract highly skilled professionals, investors, entrepreneurs, freelancers, and specialized talents to the UAE. Unlike the traditional work visa, the Green Visa does not require sponsorship from an employer, which means greater freedom and flexibility for holders. It is ideal for those who wish to establish long-term residence in the UAE, without being tied to a specific employer.</p>
             <div className="flex mb-6 flex-col justify-center lg:flex-row items-start h-auto lg:space-x-6 space-y-4 lg:space-y-0">
             <div className="flex-shrink-0 mx-auto lg:mx-0">
-                <img
+                <Image
                     src="/assets/UAEgreen.png"
                     alt="Australia Business Visa"
+                    width={500} 
+                    height={300}
 
                     className="w-full max-w-xs mt-5 sm:max-w-sm md:max-w-md lg:w-full lg:h-60 object-contain shadow-lg rounded-lg" />
             </div>

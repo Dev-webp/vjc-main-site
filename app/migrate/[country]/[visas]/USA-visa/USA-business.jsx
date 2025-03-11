@@ -1,5 +1,5 @@
 import React from 'react';
-// import Image from 'next/image';
+import Image from 'next/image'; 
 
 
 const USAbusiness = () => {
@@ -20,9 +20,11 @@ const USAbusiness = () => {
 
             <div className="flex mb-6 flex-col lg:flex-row items-start h-auto lg:space-x-6 space-y-4 lg:space-y-0">
                 <div className="flex-shrink-0 mx-auto lg:mx-0">
-                    <img
+                    <Image
                         src="/assets/USAbusiness.png"
                         alt="Australia Business Visa"
+                        width={500} 
+                        height={300}
 
                         className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:w-full lg:h-60 object-contain shadow-lg rounded-lg"
                     />

@@ -33,6 +33,7 @@ const ContactPage = () => {
       {/* Other Sections */}
       <Two />
       <Footer />
+
     </>
   );
 };

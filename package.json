@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postbuild": "next-sitemap"
+     "postbuild": "next-sitemap"
   },
   "dependencies": {
     "@fortawesome/free-regular-svg-icons": "^6.7.1",
@@ -21,6 +21,7 @@
     "lenis": "^1.1.16",
     "lucide-react": "^0.475.0",
     "next": "15.0.3",
+    "next-sitemap": "^4.2.3",
     "nodemailer": "^6.9.16",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

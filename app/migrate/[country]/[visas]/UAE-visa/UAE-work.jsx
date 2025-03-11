@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 
 const UAEwork = () => {
 
@@ -22,9 +23,11 @@ return (
             <p className='mb-6'>At VJC Overseas, we help skilled professionals and workers secure employment opportunities in the UAE, one of the most dynamic and prosperous regions in the world. If you're planning to move to the UAE for work, understanding the work visa process, living expenses, lifestyle, and visa fees is essential. Our comprehensive guide will provide you with all the information you need to make an informed decision.</p>
             <div className="flex mb-6 flex-col lg:flex-row items-start h-auto lg:space-x-6 space-y-4 lg:space-y-0">
             <div className="flex-shrink-0 mx-auto lg:mx-0">
-                <img
+                <Image
                     src="/assets/UAEwork.png"
                     alt="Australia Business Visa"
+                    width={500} 
+                    height={300}
 
                     className="w-full max-w-xs mt-5 sm:max-w-sm md:max-w-md lg:w-full lg:h-60 object-contain shadow-lg rounded-lg" />
             </div>
