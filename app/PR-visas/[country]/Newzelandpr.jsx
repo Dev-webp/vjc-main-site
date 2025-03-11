@@ -3,7 +3,7 @@ import React from "react";
 const NewzealandPR = () => {
   return (
     <div className="space-y-6 text-gray-800 leading-relaxed">
-      <h2 className="text-2xl sm:text-3xl font-bold">
+      <h2 className="text-2xl sm:text-2xl font-bold">
         New Zealand Permanent Resident Visa -{" "}
         <span className="text-orange-600 font-semibold">VJC Overseas</span>
       </h2>

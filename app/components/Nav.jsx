@@ -37,12 +37,12 @@ const Navbar = () => {
   ];
 
   const prVisaSubPages = [
-    { name: "Canada Permanent Residency Visa", path: "/pr#residency" },
-    { name: "Australia Permanent Residency Visa", path: "/pr#schengen" },
-    { name: "UK Permanent Residency Visa", path: "/pr#marketing" },
-    { name: "New Zealand Permanent Residency Visa", path: "/pr#marketing" },
-    { name: "Germany Blue Card Visa", path: "/pr#marketing" },
-    { name: "USA Green Card", path: "/pr#marketing" },
+    { name: "Canada Permanent Residency Visa", path: "/PR-visas/canadapr" },
+    { name: "Australia Permanent Residency Visa", path: "/PR-visas/australiapr" },
+    { name: "UK Permanent Residency Visa", path: "/PR-visas/ukpr" },
+    { name: "New Zealand Permanent Residency Visa", path: "/PR-visas/newzealandpr" },
+    { name: "Germany Blue Card Visa", path: "/PR-visas/germanybluecard" },
+    { name: "USA Green Card", path: "/PR-visas/usagreencard" },
     
   
   

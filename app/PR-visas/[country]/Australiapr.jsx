@@ -4,12 +4,12 @@ import React from 'react';
 
 export default function Australiapr() {
   return (
-    <div className="text-gray-800 space-y-6">
+    <div className="text-gray-800 space-y-6" style={{fontFamily:'Times new Roman'}}>
       <h2 className="text-2xl font-bold mb-2">
         <span className="text-orange-600">Australian Permanent Residency (PR)</span> - Frequently Asked Questions (FAQs)
       </h2>
 
-      <ol className="space-y-4 list-decimal list-inside">
+      {/* <ol className="space-y-4 list-decimal list-inside">
         <li>
           <strong>What are the eligibility requirements for Australian PR?</strong>
           <p className="mt-1">Age, work experience, educational qualifications, English proficiency, and health & character checks are essential.</p>
@@ -121,7 +121,7 @@ export default function Australiapr() {
             Yes, expert consultants like <span className="text-orange-600 font-semibold">VJC Overseas</span> can improve success chances, guide documentation, and reduce delays.
           </p>
         </li>
-      </ol>
+      </ol> */}
     </div>
   );
 }

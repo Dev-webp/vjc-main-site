@@ -66,7 +66,7 @@ const Migrate = () => {
   };
 
   return (
-    <div className="w-full min-h-screen flex flex-col">
+    <div className="w-full min-h-screen flex flex-col" style={{fontFamily:'Times new romman'}}>
       {/* ===== TOP SECTION ===== */}
       <div
         className="relative w-full min-h-[90vh] bg-cover bg-center"

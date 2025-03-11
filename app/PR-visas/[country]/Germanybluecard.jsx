@@ -10,8 +10,9 @@ const Germany = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
+      style={{fontFamily:'Times new Roman'}}
     >
-      <h2 className="text-2xl md:text-3xl font-bold">
+      <h2 className="text-2xl md:text-2xl font-bold">
         Germany Blue Card Visa: Your Path to Work and Live in Germany
       </h2>
 

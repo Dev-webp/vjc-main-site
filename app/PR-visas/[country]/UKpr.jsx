@@ -10,8 +10,9 @@ const UKPR = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
+      style={{fontFamily:'Times new Roman'}}
     >
-      <h2 className="text-2xl md:text-3xl font-bold">
+      <h2 className="text-2xl md:text-2xl font-bold">
         UK Permanent Residence Visa – Your Pathway to Settling in the UK with{" "}
         <span className="text-orange-600 font-semibold">VJC Overseas</span>
       </h2>
