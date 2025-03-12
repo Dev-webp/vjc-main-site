@@ -1,95 +1,133 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { useRouter, useParams } from "next/navigation";
+import React from "react";
+import { useRouter } from "next/navigation";
 import { ArrowRight } from "lucide-react";
-import Ausstud from "./Australia-visa/Aus-stud";
-import Form from "./Form";
+import { motion, px } from "framer-motion";
+import Image from "next/image";
 
-const australiaVisas = [
-  { name: "Australia Student Visa", path: "/migrate/australia/student-visa", bg: "/australia-student.jpg" },
-  { name: "Australia Business Visa", path: "/migrate/australia/business-visa", bg: "/australia-business.jpg" },
-  { name: "Australia Work Visa", path: "/migrate/australia/work-visa", bg: "/australia-work.jpg" },
-  { name: "Australia Family Visa", path: "/migrate/australia/family-visa", bg: "/australia-family.jpg" },
-  { name: "Australia Dependent Visa", path: "/migrate/australia/dependent-visa", bg: "/australia-dependent.jpg" },
-  { name: "Australia Sponsorship Visa", path: "/migrate/australia/sponsorship-visa", bg: "/australia-sponsorship.jpg" },
+const visas = [
+  { name: "Australia Student Visa", path: "/migrate/australia/student-visa" },
+  { name: "Australia Business Visa", path: "/migrate/australia/business-visa" },
+  { name: "Australia Work Visa", path: "/migrate/australia/work-visa" },
+  { name: "Australia Family Visa", path: "/migrate/australia/family-visa" },
+  { name: "Australia Dependent Visa", path: "/migrate/australia/dependent-visa" },
+  { name: "Australia Sponsorship Visa", path: "/migrate/australia/sponsorship-visa" },
 ];
 
-const visaComponents = {
-  "student-visa": Ausstud,
-  "business-visa": Ausstud,
-  "work-visa": Ausstud,
-  "family-visa": Ausstud,
-  "dependent-visa": Ausstud,
-  "sponsorship-visa": Ausstud,
-};
+const countries = [
+  { name: "Germany", path: "/migrate/germany" },
+  { name: "Canada", path: "/migrate/canada" },
+  { name: "United Kingdom", path: "/migrate/uk" },
+  { name: "USA", path: "/migrate/usa" },
+  { name: "New Zealand", path: "/migrate/new-zealand" },
+  { name: "France", path: "/migrate/france" },
+  { name: "Italy", path: "/migrate/italy" },
+  { name: "Netherlands", path: "/migrate/netherlands" },
+  { name: "Sweden", path: "/migrate/sweden" },
+  { name: "Denmark", path: "/migrate/sweden" },
+];
 
 const AustraliaVisaSection = () => {
   const router = useRouter();
-  const { visa } = useParams();
-  const selectedVisa = australiaVisas.find((v) => v.path.endsWith(visa));
-  const backgroundImage = selectedVisa?.bg || "/australiabgimg.jpg";
-  const VisaComponent = visaComponents[visa] || Ausstud;
+  const backgroundImage = "/australiaopgimg.jpg";
 
   return (
-    <div className="relative bg-cover bg-center min-h-screen">
-      {/* Background Image + Form Section */}
+    <>
+    <div className="relative w-full flex flex-col items-center text-white px-10 py-10 bg-black">
+      {/* Background Image with Text Overlay */}
       <div
-        className="relative flex flex-col lg:flex-row items-center justify-between p-10 gap-10 min-h-screen"
-        style={{
-          backgroundImage: `url(${backgroundImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
+        className="absolute w-full h-80 flex items-center justify-center bg-cover bg-center -mt-6"
+        style={{ backgroundImage: `url(${backgroundImage})` }}
       >
-        {/* Heading and Description */}
-        <div className="w-full lg:w-1/2 lg:ml-16 text-center lg:text-left">
-          <h1
-            className="font-semibold uppercase leading-tight text-teal-950 text-3xl sm:text-4xl md:text-5xl lg:text-[3.50rem] mt-12 sm:mt-12"
-            style={{ fontFamily: "Times New Roman, serif" }}
-          >
+        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+        <motion.div 
+          initial={{ y: -100, opacity: 0 }} 
+          animate={{ y: 0, opacity: 1 }} 
+          transition={{ duration: 1 }}
+          className="relative text-center"
+        >
+          <h1 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-orange-700 to-white text-transparent bg-clip-text">
             Migrate to Australia
           </h1>
-          <p
-            className="text-black tracking-tight text-center lg:text-left md:font-medium max-w-xl lg:max-w-lg mt-6 font-bold"
-            style={{ fontFamily: "Times New Roman, serif" }}
-          >
+          <p className="text-sm sm:text-sm font-medium text-gray-300 mt-2 max-w-xl mt-4">
             Discover endless opportunities with our expert immigration services. Whether you’re looking to study or work abroad, we help make your dreams a reality.
           </p>
-        </div>
-
-        {/* Form on the Right Side */}
-        <div className="w-full lg:w-1/2 lg:mr-16 lg:mt-14">
-          <Form />
-        </div>
+        </motion.div>
       </div>
 
-      {/* Visa Buttons + Visa Content Section */}
-      <div className="flex flex-col lg:flex-row bg-gradient-to-bl from-white to-orange-50 px-8 py-10 items-center lg:items-start">
-        {/* Visa Buttons */}
-        <div className="w-full lg:w-[350px] flex-shrink-0 px-4 mb-8 lg:mb-0">
-          <h2 className="text-3xl font-bold text-gray-800 bg-gradient-to-r from-orange-500 to-black bg-clip-text text-transparent mb-8 text-center">
-            Visa Options for Australia
-          </h2>
-          <div className="flex flex-col gap-4 items-center">
-            {australiaVisas.map(({ name, path }) => (
-              <button
-                key={path}
-                className="w-full sm:w-[350px] flex items-center justify-between text-lg font-semibold bg-white text-black border border-orange-500 px-6 py-4 rounded-xl shadow-lg hover:shadow-2xl hover:bg-orange-500 hover:text-white transform hover:scale-105 transition duration-300"
-                onClick={() => router.push(path)}
-              >
-                {name}
-                <ArrowRight className="w-6 h-6 text-black transition duration-300" />
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Visa Content Section */}
-        <div className="w-full lg:flex-1 ml-10 overflow-y-auto max-h-[800px] px-8 rounded-xl shadow-md border border-gray-200 mt-8 lg:mt-0">
-          {VisaComponent ? <VisaComponent /> : <p>Select a visa option to view details.</p>}
-        </div>
+      {/* Visa Buttons Section */}
+      <div className="relative z-10 w-full flex flex-wrap justify-center mt-64 gap-4">
+        {visas.map(({ name, path }) => (
+          <motion.button
+            key={path}
+            className="w-64 px-6 py-4 text-lg font-semibold rounded-lg shadow-lg border border-orange-500 transition-transform transform bg-black bg-opacity-50 hover:bg-orange-500 hover:text-white hover:scale-110 active:scale-90"
+            onClick={() => router.push(path)}
+            whileHover={{ rotateX: 360 }}
+            transition={{ duration: 0.5 }}
+          >
+            {name}
+            <span className="block text-sm mt-1">Click here to know more</span>
+            <ArrowRight className="w-4 h-4 ml-2 inline-block" />
+          </motion.button>
+        ))}
       </div>
+
+      {/* Country Buttons and Side Image */}
+      <hr className="border-t-inherit border-orange-500 w-full mx-auto lg:mx-0 mb-5 mt-10" />
+      
+      <div className="relative z-10 w-full flex flex-col-reverse lg:flex-row items-center justify-between mt-10 bg-orange-600 text-white py-10 px-6 rounded-lg shadow-lg gap-16">
+  
+  {/* Right Side - Image (Now Comes First for Mobile Layout) */}
+  <div className="w-full lg:w-1/2 flex justify-center">
+  <Image
+  src="/australiaplaneimg.png"
+  alt="Migration"
+  width={500} // Set an appropriate width
+  height={500} // Set an appropriate height
+  className="max-w-full lg:max-w-[100%] h-auto shadow-lg object-contain"
+/>
+  </div>
+
+  {/* Left Side - Country Buttons (Will be below the image on mobile) */}
+  <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left mt-6 lg:mt-0">
+    <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">Migrate to Country!..</h2>
+    <hr className="border-t-2 border-white w-24 mb-6" />
+
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 sm:gap-x-2 justify-center">
+      {countries.map(({ name, path }) => (
+        <button
+          key={path}
+          className="w-44 px-3 py-3 bg-black opacity-80 text-orange-400 font-semibold shadow-md 
+          hover:bg-orange-600 hover:text-white transition 
+          transform hover:scale-110 active:scale-90"
+          onClick={() => router.push(path)}
+        >
+          {name}
+        </button>
+      ))}
     </div>
+  </div>
+</div>
+
+<div className="w-full flex flex-col items-center text-center bg-black bg-opacity-80 text-white py-10 px-6 mt-10 rounded-lg shadow-lg">
+    <h2 className="text-2xl sm:text-3xl font-bold mb-4">
+      Join the Best Team of Experts
+    </h2>
+    <p className="text-lg sm:text-xl text-gray-300 mb-6 max-w-xl">
+      Build a rewarding career with our professional team.
+    </p>
+    <button 
+      className="px-6 py-3 bg-black border border-orange-600 text-white font-semibold shadow-md 
+      hover:bg-orange-700 transition transform hover:scale-110 active:scale-90"
+    >
+      VJC Overseas
+    </button>
+  </div>
+
+
+    </div>
+   
+  </>
   );
 };
 
