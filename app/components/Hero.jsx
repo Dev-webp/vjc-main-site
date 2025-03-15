@@ -56,6 +56,7 @@ export default function HeroSection() {
               width={432} 
               height={112} 
               priority
+              unoptimized
               className="w-[23rem] lg:w-[27rem] h-[7rem]"
             />
 

@@ -2,20 +2,25 @@
 
 import { createContext, useContext } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+
+// Context for stagger effect
 const FadeInStaggerContext = createContext(false);
 
-const viewport = { once: true, margin: "0px 0px -200px" };
+// Optimized viewport settings
+const viewport = { once: true, margin: "0px 0px -150px" };
 
-const FadeIn = (props) => {
+// FadeIn component
+const FadeIn = ({ children, duration = 0.4, ...props }) => {
   const shouldReduceMotion = useReducedMotion();
   const isInStaggerGroup = useContext(FadeInStaggerContext);
+
   return (
     <motion.div
       variants={{
-        hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 24 },
+        hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
         visible: { opacity: 1, y: 0 },
       }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration }}
       {...(isInStaggerGroup
         ? {}
         : {
@@ -24,22 +29,25 @@ const FadeIn = (props) => {
             viewport,
           })}
       {...props}
-    />
+    >
+      {children}
+    </motion.div>
   );
 };
 
-export const FadeInStagger = ({ faster = false, ...props }) => {
-  return (
-    <FadeInStaggerContext.Provider value={true}>
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={viewport}
-        transition={{ staggerChildren: faster ? 0.12 : 0.2 }}
-        {...props}
-      />
-    </FadeInStaggerContext.Provider>
-  );
-};
+// Stagger component
+export const FadeInStagger = ({ faster = false, children, ...props }) => (
+  <FadeInStaggerContext.Provider value={true}>
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={viewport}
+      transition={{ staggerChildren: faster ? 0.1 : 0.2 }}
+      {...props}
+    >
+      {children}
+    </motion.div>
+  </FadeInStaggerContext.Provider>
+);
 
 export default FadeIn;

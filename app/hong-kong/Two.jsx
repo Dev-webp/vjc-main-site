@@ -6,12 +6,12 @@ import { motion, px } from "framer-motion";
 import Image from "next/image";
 
 const visas = [
-  { name: "Australia Student Visa", path: "/migrate/australia/student-visa" },
-  { name: "Australia Business Visa", path: "/migrate/australia/business-visa" },
-  { name: "Australia Work Visa", path: "/migrate/australia/work-visa" },
-  { name: "Australia Family Visa", path: "/migrate/australia/family-visa" },
-  { name: "Australia Dependent Visa", path: "/migrate/australia/dependent-visa" },
-  { name: "Australia Sponsorship Visa", path: "/migrate/australia/sponsorship-visa" },
+  { name: "Hong Kong Student Visa", path: "/migrate/hong-kong/student-visa" },
+    { name: "Hong Kong Employment Visa", path: "/migrate/hong-kong/employment-visa" },
+    { name: "Hong Kong Business Visa", path: "/migrate/hong-kong/business-visa" },
+    { name: "Hong Kong Tourist Visa", path: "/migrate/hong-kong/tourist-visa" },
+    { name: "Hong Kong Dependent Visa", path: "/migrate/hong-kong/dependent-visa" },
+    { name: "Hong Kong Work Visa", path: "/migrate/hong-kong/work-visa" },
 ];
 
 const countries = [
@@ -47,7 +47,7 @@ const AustraliaVisaSection = () => {
           className="relative text-center"
         >
           <h1 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-orange-700 to-white text-transparent bg-clip-text">
-            Migrate to Australia
+            Migrate to Hong-Kong
           </h1>
           <p className="text-sm sm:text-sm font-medium text-gray-300 mt-2 max-w-xl mt-4">
             Discover endless opportunities with our expert immigration services. Whether you’re looking to study or work abroad, we help make your dreams a reality.

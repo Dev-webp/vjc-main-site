@@ -6,12 +6,13 @@ import { motion, px } from "framer-motion";
 import Image from "next/image";
 
 const visas = [
-  { name: "Australia Student Visa", path: "/migrate/australia/student-visa" },
-  { name: "Australia Business Visa", path: "/migrate/australia/business-visa" },
-  { name: "Australia Work Visa", path: "/migrate/australia/work-visa" },
-  { name: "Australia Family Visa", path: "/migrate/australia/family-visa" },
-  { name: "Australia Dependent Visa", path: "/migrate/australia/dependent-visa" },
-  { name: "Australia Sponsorship Visa", path: "/migrate/australia/sponsorship-visa" },
+  { name: "New Zealand Permanent Resident Visa", path: "/migrate/new-zealand/permanent-resident-visa" },
+    { name: "New Zealand Work Visa", path: "/migrate/new-zealand/work-visa" },
+    { name: "New Zealand Student Visa", path: "/migrate/new-zealand/skilled-work-visa" },
+    { name: "New Zealand Skilled Work Visa", path: "/migrate/new-zealand/skilled-work-visa" },
+    { name: "New Zealand Business Visa", path: "/migrate/new-zealand/business-visa" },
+    { name: "New Zealand Tourist Visa", path: "/migrate/new-zealand/tourist-visa" },
+    { name: "New Zealand Dependent Visa", path: "/migrate/new-zealand/dependent-visa" },
 ];
 
 const countries = [
@@ -47,7 +48,7 @@ const AustraliaVisaSection = () => {
           className="relative text-center"
         >
           <h1 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-orange-700 to-white text-transparent bg-clip-text">
-            Migrate to Australia
+            Migrate to New-zealand
           </h1>
           <p className="text-sm sm:text-sm font-medium text-gray-300 mt-2 max-w-xl mt-4">
             Discover endless opportunities with our expert immigration services. Whether you’re looking to study or work abroad, we help make your dreams a reality.

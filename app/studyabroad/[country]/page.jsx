@@ -1,9 +1,18 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import Nav from "./Nav";
+import Form from "./Form";
 import Two from "./Two";
 import Footer from "./Footer";
+
+const textContainerVariants = {
+ 
+   
+};
+
+
 
 const ContactPage = () => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
@@ -15,17 +24,16 @@ const ContactPage = () => {
   return (
     <>
       {/* Navbar */}
-      <div className="mt-10 z-20 relative">
+      <div style={{ marginTop: "5%", zIndex: 20, position: "relative" }}>
         <Nav />
       </div>
 
       {/* Main Section */}
-      <div className="mt-16">
-        <Two />
-      </div>
-
-      {/* Footer Section */}
+      
+      {/* Other Sections */}
+      <Two />
       <Footer />
+
     </>
   );
 };
